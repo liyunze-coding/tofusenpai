@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+import GiveMeLove from "./film-images/give-me-love.webp";
+import Daydreamers from "./film-images/daydreamers.webp";
+import LeftCard from "./SubComponents/LeftCard.astro";
+import RightCard from "./SubComponents/RightCard.astro";
+---
+
+<div id="home-cards" class="w-full">
+	<LeftCard
+		src={GiveMeLove}
+		alt="Give Me Love"
+		heading="GIVE ME LOVE"
+		subheading="(SHORT FILM)"
+		eager={true}
+	/>
+	<RightCard
+		src={Daydreamers}
+		alt="Daydreamers"
+		heading="DAYDREAMERS"
+		subheading="(OFF-BROADWAY SHOW)"
+	/>
+	<div class="background-blur"></div>
+</div>
+
+<style is:global lang="scss">
+	#home-cards {
+		margin-top: 8rem;
+	}
+
+	.project {
+		transition:
+			transform 300ms ease,
+			filter 300ms ease,
+			opacity 300ms ease;
+	}
+
+	.text-box {
+		line-height: 28px;
+		font-size: 28px;
+		opacity: 0;
+		transition: opacity 600ms ease;
+	}
+
+	#home-cards:has(.project:hover) .project:not(.project:hover) {
+		filter: blur(3px);
+	}
+
+	.project-img {
+		transition:
+			transform 300ms ease,
+			filter 300ms ease;
+		filter: grayscale(100%);
+
+		&.left {
+			transform: rotate(-6.15deg);
+		}
+
+		&.right {
+			transform: rotate(3.62deg);
+		}
+	}
+
+	.project:hover {
+		> .project-img {
+			transform: none;
+			filter: brightness(100%);
+		}
+
+		> .text-box {
+			opacity: 100%;
+		}
+
+		~ .background-blur {
+			backdrop-filter: blur(5px);
+		}
+	}
+
+	.project div {
+		z-index: 5;
+	}
+
+	.background-blur {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		backdrop-filter: none;
+		z-index: 2;
+		transition: backdrop-filter 600ms ease;
+	}
+</style>

@@ -1,0 +1,33 @@
+---
+interface Props {
+	src: any;
+	alt: string;
+	eager?: boolean | null;
+	heading: string;
+	subheading: string;
+	translateUp?: number | null;
+}
+
+import { Image } from "astro:assets";
+
+const { src, alt, eager, heading, subheading, translateUp } = Astro.props;
+---
+
+<div class="project flex justify-center items-center">
+	<div class="project-detail text-box w-1/2">
+		{heading}
+		<br /><br />
+		{subheading}
+	</div>
+	<div class="project-detail project-img right">
+		<Image
+			src={src}
+			alt={alt}
+			width="500"
+			class="rounded-lg"
+			loading={eager ? "eager" : "lazy"}
+		/>
+	</div>
+</div>
+
+<style define:vars={{ translateUp }}></style>
