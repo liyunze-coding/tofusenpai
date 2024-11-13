@@ -37,9 +37,8 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation } = Astro.props;
 
 <style define:vars={{ x, y, z, rotation }}>
 	.project > div {
-		transform: translateX(var(--x)) translateY(var(--y));
-
-		z-index: var(--z);
+		transform: translateX(var(--x)) translateY(var(--y))
+			translateZ(var(--z));
 	}
 
 	.left {
