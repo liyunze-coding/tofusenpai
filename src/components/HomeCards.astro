@@ -1,38 +1,80 @@
 ---
-import { Image } from "astro:assets";
 import GiveMeLove from "./film-images/give-me-love.webp";
 import Daydreamers from "./film-images/daydreamers.webp";
+import Grimes from "./film-images/grimes-coachella.webp";
+import Rainbows from "./film-images/short-film-about-rainbows.webp";
+import Sharkbait from "./film-images/shark-bait.webp";
+
 import LeftCard from "./SubComponents/LeftCard.astro";
 import RightCard from "./SubComponents/RightCard.astro";
 ---
 
-<div id="home-cards" class="w-full">
+<div id="home-cards" class="w-full relative">
 	<LeftCard
 		src={GiveMeLove}
 		alt="Give Me Love"
 		heading="GIVE ME LOVE"
 		subheading="(SHORT FILM)"
 		eager={true}
+		x="100px"
+		y="0px"
+		z="10"
+		rotation="-6.15deg"
 	/>
 	<RightCard
 		src={Daydreamers}
 		alt="Daydreamers"
 		heading="DAYDREAMERS"
 		subheading="(OFF-BROADWAY SHOW)"
+		eager={false}
+		x="-30px"
+		y="160px"
+		z="9"
+		rotation="3deg"
 	/>
+	<LeftCard
+		src={Grimes}
+		alt="Grimes Coachella 2024"
+		heading="GRIMES COACHELLA 2024"
+		subheading="(MULTIMEDIA LIVE SHOW)"
+		eager={false}
+		x="50px"
+		y="400px"
+		z="8"
+		rotation="-6.15deg"
+	/>
+	<!-- <RightCard
+		src={Rainbows}
+		alt="A short film about rainbows"
+		heading="A SHORT FILM ABOUT RAINBOWS"
+		subheading="(ANIMATION)"
+		eager={false}
+	/>
+	<LeftCard
+		src={Sharkbait}
+		alt="Shark Bait"
+		heading="SHARKBAIT"
+		subheading="(SHORT FILM)"
+		eager={false}
+	/> -->
 	<div class="background-blur"></div>
 </div>
 
 <style is:global lang="scss">
+	:root {
+		--cards-height: 1000px;
+	}
+
 	#home-cards {
-		margin-top: 8rem;
+		margin-top: 5rem;
+		height: var(--cards-height);
 	}
 
 	.project {
 		transition:
-			transform 300ms ease,
-			filter 300ms ease,
-			opacity 300ms ease;
+			transform 600ms ease-in,
+			filter 300ms ease-in,
+			opacity 300ms ease-in;
 	}
 
 	.text-box {
@@ -51,33 +93,25 @@ import RightCard from "./SubComponents/RightCard.astro";
 			transform 300ms ease,
 			filter 300ms ease;
 		filter: grayscale(100%);
-
-		&.left {
-			transform: rotate(-6.15deg);
-		}
-
-		&.right {
-			transform: rotate(3.62deg);
-		}
 	}
 
 	.project:hover {
-		> .project-img {
+		.project-img {
 			transform: none;
 			filter: brightness(100%);
 		}
 
-		> .text-box {
+		.text-box {
 			opacity: 100%;
 		}
 
 		~ .background-blur {
-			backdrop-filter: blur(5px);
+			backdrop-filter: blur(3px);
 		}
 	}
 
-	.project div {
-		z-index: 5;
+	.project > div {
+		z-index: 3;
 	}
 
 	.background-blur {
@@ -88,6 +122,6 @@ import RightCard from "./SubComponents/RightCard.astro";
 		bottom: 0;
 		backdrop-filter: none;
 		z-index: 2;
-		transition: backdrop-filter 600ms ease;
+		transition: backdrop-filter 350ms ease;
 	}
 </style>

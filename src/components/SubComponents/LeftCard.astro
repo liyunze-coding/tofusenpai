@@ -5,26 +5,44 @@ interface Props {
 	eager?: boolean | null;
 	heading: string;
 	subheading: string;
+	x: string;
+	y: string;
+	z: string;
+	rotation: string;
 }
 
 import { Image } from "astro:assets";
 
-const { src, alt, eager, heading, subheading } = Astro.props;
+const { src, alt, eager, heading, subheading, x, y, z, rotation } = Astro.props;
 ---
 
-<div class="project flex justify-center items-center">
-	<div class="project-detail project-img left">
-		<Image
-			src={src}
-			alt={alt}
-			width="500"
-			class="rounded-lg"
-			loading={eager ? "eager" : "lazy"}
-		/>
-	</div>
-	<div class="project-detail text-box w-1/2">
-		{heading}
-		<br /><br />
-		{subheading}
+<div class="project relative">
+	<div class="flex justify-center items-center absolute">
+		<div class="project-detail project-img left">
+			<Image
+				src={src}
+				alt={alt}
+				width="500"
+				class="rounded-lg"
+				loading={eager ? "eager" : "lazy"}
+			/>
+		</div>
+		<div class="project-detail text-box w-1/2">
+			{heading}
+			<br /><br />
+			{subheading}
+		</div>
 	</div>
 </div>
+
+<style define:vars={{ x, y, z, rotation }}>
+	.project > div {
+		transform: translateX(var(--x)) translateY(var(--y));
+
+		z-index: var(--z);
+	}
+
+	.left {
+		transform: rotate(var(--rotation));
+	}
+</style>
