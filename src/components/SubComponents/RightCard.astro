@@ -9,14 +9,16 @@ interface Props {
 	y: string;
 	z: string;
 	rotation: string;
+	href?: string | null;
 }
 
 import { Image } from "astro:assets";
 
-const { src, alt, eager, heading, subheading, x, y, z, rotation } = Astro.props;
+const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
+	Astro.props;
 ---
 
-<div class="project">
+<a href={href} class="project relative w-full block">
 	<div class="flex justify-center items-center absolute">
 		<div class="project-detail text-box w-1/2">
 			{heading}
@@ -33,7 +35,7 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation } = Astro.props;
 			/>
 		</div>
 	</div>
-</div>
+</a>
 
 <style define:vars={{ x, y, z, rotation }}>
 	.project > div {

@@ -9,25 +9,31 @@ import Twitchcon from "./film-images/samsung-twitchcon.webp";
 import Heavenmade from "./film-images/heavenmade.webp";
 import TellTheGirl from "./film-images/tell-the-girl.webp";
 import CreatorCulture from "./film-images/creator-culture.webp";
+import DoIKnowYou from "./film-images/do-i-know-you.webp";
 
+import { Image } from "astro:assets";
+
+// subcomponents
 import LeftCard from "./SubComponents/LeftCard.astro";
 import RightCard from "./SubComponents/RightCard.astro";
 ---
 
-<div id="home-cards" class="w-full relative">
+<div id="home-cards" class="w-full relative hidden md:block">
 	<!-- LeftCard = Card on the left side -->
 	<LeftCard
+		href="/projects/give-me-love"
 		src={GiveMeLove}
 		alt="Give Me Love"
+		eager={true}
 		heading="GIVE ME LOVE"
 		subheading="(SHORT FILM)"
-		eager={true}
 		x="100px"
 		y="0px"
 		z="10px"
 		rotation="-6.15deg"
 	/>
 	<RightCard
+		href="/projects/daydreamers"
 		src={Daydreamers}
 		alt="Daydreamers"
 		heading="DAYDREAMERS"
@@ -60,23 +66,29 @@ import RightCard from "./SubComponents/RightCard.astro";
 		z="9px"
 		rotation="5deg"
 	/>
-	<!-- <LeftCard
+	<LeftCard
 		src={Sharkbait}
 		alt="Shark Bait"
 		heading="SHARKBAIT"
 		subheading="(SHORT FILM)"
 		eager={false}
-	/> -->
+		x="120px"
+		y="800px"
+		z="7px"
+		rotation="-2.15deg"
+	/>
+
 	<div class="background-blur"></div>
 </div>
 
 <style is:global lang="scss">
 	:root {
-		--cards-height: 1000px;
+		--cards-margin-top: 5rem; /* adjust the margin top  */
+		--cards-height: 1000px; /* adjust the cards component total height*/
 	}
 
 	#home-cards {
-		margin-top: 5rem;
+		margin-top: var(--cards-margin-top);
 		height: var(--cards-height);
 	}
 
@@ -94,6 +106,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 		transition: opacity 600ms ease;
 	}
 
+	// non hovering cards -> blurred
 	#home-cards:has(.project:hover) .project:not(.project:hover) {
 		filter: blur(3px);
 	}
@@ -108,7 +121,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 	.project:hover {
 		.project-img {
 			transform: none;
-			filter: brightness(100%);
+			filter: none;
 		}
 
 		.text-box {

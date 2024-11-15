@@ -1,0 +1,93 @@
+---
+// importing images
+import GiveMeLove from "./film-images/give-me-love.webp";
+import Daydreamers from "./film-images/daydreamers.webp";
+import Grimes from "./film-images/grimes-coachella.webp";
+import Rainbows from "./film-images/short-film-about-rainbows.webp";
+import Sharkbait from "./film-images/shark-bait.webp";
+import Twitchcon from "./film-images/samsung-twitchcon.webp";
+import Heavenmade from "./film-images/heavenmade.webp";
+import TellTheGirl from "./film-images/tell-the-girl.webp";
+import CreatorCulture from "./film-images/creator-culture.webp";
+import DoIKnowYou from "./film-images/do-i-know-you.webp";
+
+import { Image } from "astro:assets";
+
+// subcomponents
+import LeftCard from "./SubComponents/LeftCard.astro";
+import RightCard from "./SubComponents/RightCard.astro";
+
+// mobile components
+import { ContainerScroll } from "./ui/container-scroll-animation";
+---
+
+<div class="flex flex-col md:hidden overflow-hidden">
+	<ContainerScroll
+		heading="Give Me Love"
+		subheading="(SHORT FILM)"
+		client:load
+	>
+		<Image
+			src={GiveMeLove}
+			alt="GIVE ME LOVE"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-left-top"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		heading="DAYDREAMERS"
+		subheading="(OFF-BROADWAY SHOW)"
+		client:load
+	>
+		<Image
+			src={Daydreamers}
+			alt="Daydreamers"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-left-top"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		heading="GRIMES COACHELLA 2024"
+		subheading="(MULTIMEDIA LIVE SHOW)"
+		client:load
+	>
+		<Image
+			src={Grimes}
+			alt="Grimes Coachella 2024"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-left-top"
+			draggable={false}
+		/>
+	</ContainerScroll>
+
+	<ContainerScroll
+		heading="A SHORT FILM ABOUT RAINBOWS"
+		subheading="(ANIMATION)"
+		client:load
+	>
+		<Image
+			src={Rainbows}
+			alt="a short film about rainbows"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-left-top"
+			draggable={false}
+		/>
+	</ContainerScroll>
+
+	<ContainerScroll heading="SHARK BAIT" subheading="(SHORT FILM)" client:load>
+		<Image
+			src={Sharkbait}
+			alt="Shark Bait"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-left-top"
+			draggable={false}
+		/>
+	</ContainerScroll>
+</div>

@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-git clone https://github.com/liyunze-coding/tofusenpai.git
+git clone https://github.com/liyunze-coding/TofuSenpai.git
 cd path/to/project
 npm install
 ```
@@ -18,3 +18,19 @@ npm install
     - MozJPEG -> WebP
     - resize, recommended size is 20kB - 40kB
 - reference it using imports
+
+Left/Right Card Component:
+```
+<LeftCard
+    src={Image Source}
+    alt="Image description"
+    heading="heading here"
+    subheading="(sub heading here)"
+    eager={true/false}
+    x="0px"
+    y="0px"
+    z="0px"
+    rotation="0deg"
+/>
+```
+

@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HomeCards from "../../components/HomeCards.astro";
+import MobileViewCards from "../../components/MobileViewCards.astro";
+import VideoPreview from "../../components/SubComponents/VideoPreview.astro";
+import givemelove from "./images/give-me-love.webp";
+---
+
+<Layout title="GIVE ME LOVE (Short Film)">
+	<main
+		class="container m-auto pt-5 pb-10 px-4 w-[1000px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<VideoPreview
+			src="give-me-love.webp"
+			url="https://www.youtube.com/embed/oSUX6m_zazY"
+		/>
+		<div
+			class="py-20 font-['futura-pt',sans-serif] text-center leading-9 font-light"
+		>
+			<h1 class="text-5xl text-center font-medium">
+				GIVE ME LOVE (2024)
+			</h1>
+
+			<p class="mt-10">
+				'Give Me Love' began as a compassionate exploration of the
+				suppression of male emotions and their impact on others. As the
+				film developed, I found myself confronting my ideals of
+				manhood—ideals that stood in sharp contrast to those my father
+				instilled in me: the 'proper' man, endowed with noble
+				responsibilities, a stern and respectable composure, and an
+				immunity to shedding tears. I believed that by being in tune
+				with my emotions, I would achieve my vision of manhood. Yet, the
+				man I aimed to be remained distant from the facade I actually
+				wore.
+			</p>
+			<br />
+			<p>
+				This realization sparked deeper contemplation on my father's
+				personal struggles. Could the capricious flashes beneath his
+				rigid exterior signify his own struggle? Was he, too, laboring
+				to reconcile his outward persona with an internal ideal that
+				remained elusive?
+			</p>
+			<br />
+			<p>
+				This film does not attempt to provide answers about emotional
+				repression, rather, it aims to observe the internal struggle
+				experienced when one's emotions are not permitted to surface,
+				and the profound loneliness that ensues.
+			</p>
+			<br />
+			<p>*</p>
+			<ul class="gap-5">
+				<li>written and directed by WILLIAM YAO</li>
+				<li>choreography by ANDREW HA</li>
+				<li>produced by SUNNY LIU</li>
+				<li>director of photography JULLIAN VISCO</li>
+				<li>
+					starring JON RAY DY BUCO, DOMINIQUE MAILLOUX, and WILLIAM
+					YAO
+				</li>
+				<li>edited by WILLIAM YAO and ANDREW HA</li>
+				<li>sound design by ZAC CHUNG</li>
+				<li>colored by PATRICK GONG</li>
+				<li>co-produced by STEVEN CHEN</li>
+				<li>assistant director SIJING YANG</li>
+				<li>gaffer BERKELEY REYES</li>
+				<li>assistant camera CARIS SIMMONS</li>
+				<li>wardrobe EMMA CHIEW</li>
+				<li>production design TEGAN DOBRICH</li>
+				<li>hair and makeup YOUJIN KANG</li>
+				<li>hmu assistant KITTY YIN</li>
+				<li>
+					dancers LLOYD GUNNER, ZAC CHUNG, STEVEN CHEN, <br />
+					RYAN PAJAR, YOUNEY TEREFE, FAN YE, <br />
+					JAYARE HERMANO, MARQUIS ALLEN, GABRIEL QUARESMA, <br />
+					JASSEN ONGCOL, XAVIEN HERBOSA-RODRIGUEZ, BILLY GRIMALDI, <br
+					/>
+					KALEAH CRUMP, CALEB AGNO, RICKY TAKAHOE, <br />
+					STEVEN DO, ZOE DANG
+				</li>
+				<li>executively produced by SITI AYUB</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main > div > *:not(h1) {
+		font-size: 1rem;
+		line-height: 1.25rem;
+		line-height: 2rem;
+	}
+
+	li {
+		margin: 12px 0;
+	}
+</style>
