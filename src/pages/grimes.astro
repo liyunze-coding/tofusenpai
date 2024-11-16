@@ -1,5 +1,102 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import InfiniteScroll from "../components/InfiniteScroll.astro";
 ---
 
-<Layout title="A SHORT FILM ABOUT RAINBOWS" />
+<Layout title="A SHORT FILM ABOUT RAINBOWS" background="#000">
+	<main
+		class="container bg-black m-auto pt-20 pb-10 px-4 w-[1425px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<!-- Inspiration -->
+		<InfiniteScroll
+			text="00://THE INSPIRATION"
+			duration="25s"
+			className="fadeIn"
+		/>
+
+		<div
+			class="mt-14 flex flex-col lg:flex-row justify-between items-start gap-8"
+		>
+			<!-- text on the left -->
+			<div class="w-[45%]">
+				<p>
+					In 2023, GRIMES debuts a clone of herself under the name
+					GRIMES AI using state-of-the-art technologies which advanced
+					the relationship between Artists, their work, and their
+					fans.
+				</p>
+				<br />
+				<p>
+					These advancements ranged from an internal collaborative
+					chatbot of GRIMES (V1), a voice cloning tool used by
+					hundred-of-thousands of fans to create their own music as
+					GRIMES AI, a fun and interactive social-media sci-fi GRIMES
+					AI on Twitter, and more.
+				</p>
+				<br />
+				<p>
+					We want to combines peak human potential with peak AI
+					technologies rather than allowing technology to replace
+					humans. Pushing forward HOMOTECHNO with intelligent design,
+					reprogramming the human computer.
+				</p>
+			</div>
+			<div class="w-[692px]">
+				<img
+					src="/grimes/Coachella+Pill.png"
+					alt="Coachella Pill"
+					width="692"
+				/>
+			</div>
+		</div>
+
+		<div class="w-full mt-40 flex flex-col justify-center items-center">
+			<!-- 01 concept -->
+			<InfiniteScroll
+				text="01://THE CONCEPT"
+				duration="25s"
+				className="fadeIn"
+			/>
+
+			<p class="text-left italic text mt-5 w-[35%]">
+				GRIMES IS IN THE MACHINE. and GRIMES IS THE MACHINE.
+			</p>
+			<div class="relative w-full h-[1000px] mt-10">
+				<img
+					src="/grimes/thumbnail.jpg"
+					alt="thumbnail"
+					width="798"
+					class="absolute left-[40px]"
+				/>
+				<p class="absolute w-[37%] left-[640px] top-[40px]">
+					We want to offer a once in a lifetime experience for
+					COACHELLA to cement the bridge between humans and machines,
+					leading us into a bold new future for HOMOTECHNO. The core
+					concepts are THE MACHINES, THE MONOLITH, and THE AI CINEMA
+				</p>
+				<p class="absolute w-[50%] left-[120px] top-[480px]">
+					EXOSAPIEN created the SPIDER MACHINE that GRIMES entered the
+					stage on.
+				</p>
+				<!-- video -->
+				<!-- video -->
+				<img src="/grimes/modi-01.jpeg" alt="monolith" width="400" />
+				<p class="absolute w-[50%] left-[525px] top-[810px]">
+					xiteLabs built the MONOLITH for the stage, produced the AI
+					CINEMA that Daito Manabe & Rhizomatiks created the motion
+					capture for
+				</p>
+				<!-- video -->
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	p {
+		font-family: "futura-pt", sans-serif;
+		font-size: 27px;
+		line-height: 37px;
+		font-weight: 500;
+	}
+</style>

@@ -1,0 +1,86 @@
+---
+interface Props {
+	text: string;
+	duration: string;
+	marginBetween?: string;
+	className?: string;
+}
+
+let { text, duration, marginBetween, className } = Astro.props;
+
+marginBetween = marginBetween ?? "0.5rem";
+---
+
+<div id="scroll-container" class:list={className}>
+	<div class="scroll" id="scroll-one">
+		{
+			new Array(5).fill(0).map((_, i) => (
+				<>
+					<div class="item">{text}</div>
+					<div class="item">*</div>
+				</>
+			))
+		}
+	</div>
+	<div class="scroll" id="scroll-two">
+		{
+			new Array(5).fill(0).map((_, i) => (
+				<>
+					<div class="item">{text}</div>
+					<div class="item">*</div>
+				</>
+			))
+		}
+	</div>
+	<div class="fade"></div>
+</div>
+
+<style define:vars={{ duration, marginBetween }}>
+	#scroll-container {
+		font-family: "futura-pt", sans-serif;
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		height: 46px;
+		white-space: nowrap;
+		color: #fff;
+	}
+	#scroll-container .scroll {
+		font-weight: 500;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		white-space: nowrap;
+		animation: primary var(--duration) linear infinite;
+	}
+	#scroll-container .scroll#scroll-two {
+		transform: translateX(100%);
+		animation: secondary var(--duration) linear infinite;
+	}
+	@keyframes primary {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0%);
+		}
+	}
+	@keyframes secondary {
+		0% {
+			transform: translateX(0%);
+		}
+		100% {
+			transform: translateX(100%);
+		}
+	}
+	.item {
+		display: flex;
+		align-items: center;
+		margin: 0 var(--marginBetween);
+		color: #e2e8f0;
+		font-size: 1.8rem;
+		border-radius: 0.4rem;
+		white-space: nowrap;
+	}
+</style>

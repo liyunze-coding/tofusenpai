@@ -1,6 +1,6 @@
-- [ ] header title
+- [x] header title
 - [x] image sizing
-- [ ] other projects -
+- [x] other projects -
 - [x] intersection observer
 - [x] projects dropdown
 - [ ] header hamburger
@@ -8,3 +8,4 @@
 - [x] animate in give me love
 - [ ] mobile project images srcset
 - [ ] compress images
+- [ ] view transitions

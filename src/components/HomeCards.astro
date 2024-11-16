@@ -11,8 +11,6 @@ import TellTheGirl from "./film-images/tell-the-girl.webp";
 import CreatorCulture from "./film-images/creator-culture.webp";
 import DoIKnowYou from "./film-images/do-i-know-you.webp";
 
-import { Image } from "astro:assets";
-
 // subcomponents
 import LeftCard from "./SubComponents/LeftCard.astro";
 import RightCard from "./SubComponents/RightCard.astro";
@@ -45,6 +43,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 		rotation="3deg"
 	/>
 	<LeftCard
+		href="/grimes"
 		src={Grimes}
 		alt="Grimes Coachella 2024"
 		heading="GRIMES COACHELLA 2024"
@@ -97,7 +96,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="HEAVENMADE"
 		subheading="(MOVEMENT DIRECTION)"
 		eager={false}
-		x="120px"
+		x="125px"
 		y="1300px"
 		z="10px"
 		rotation="-3.15deg"
@@ -144,7 +143,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 <style is:global lang="scss">
 	:root {
 		--cards-margin-top: 5rem; /* adjust the margin top  */
-		--cards-height: 2300px; /* adjust the cards component total height*/
+		--cards-height: 2400px; /* adjust the cards component total height*/
 	}
 
 	#home-cards {

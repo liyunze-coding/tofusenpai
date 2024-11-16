@@ -1,10 +1,12 @@
 ---
 interface Props {
-	showLogo?: boolean | true;
+	showLogo: boolean;
+	active?: string | null;
 }
 
-let { showLogo } = Astro.props;
+let { showLogo, active } = Astro.props;
 showLogo = showLogo ?? true;
+active = active ?? "";
 
 type Link = {
 	title: string;
@@ -71,7 +73,8 @@ const links: Link[] = [
 			<a
 				href="/projects"
 				onclick="return false"
-				class="peer px-5 py-2 text-white">Projects</a
+				class="peer px-5 py-2 text-white underline-offset-8"
+				class:list={[{ underline: active === "projects" }]}>Projects</a
 			>
 
 			<!-- the menu here -->
@@ -93,7 +96,12 @@ const links: Link[] = [
 			</div>
 		</div>
 
-		<a id="about-anchor" href="/about" class="underline-offset-8">About</a>
+		<a
+			id="about-anchor"
+			href="/about"
+			class="underline-offset-8"
+			class:list={[{ underline: active === "about" }]}>About</a
+		>
 	</div>
 </div>
 

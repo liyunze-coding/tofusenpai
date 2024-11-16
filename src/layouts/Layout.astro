@@ -2,10 +2,14 @@
 import Header from "../components/Header.astro";
 interface Props {
 	title: string;
-	showLogo?: boolean | true;
+	showLogo?: boolean;
+	active?: string | null;
+	background?: string | null;
 }
 
-const { title, showLogo } = Astro.props;
+let { title, showLogo, active, background } = Astro.props;
+showLogo = showLogo ?? true;
+background = background ?? "#13151a";
 ---
 
 <!doctype html>
@@ -19,12 +23,12 @@ const { title, showLogo } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header showLogo={showLogo} />
+		<Header showLogo={showLogo} active={active} />
 		<slot />
 	</body>
 </html>
-<style is:global>
-	@import url("https://fonts.googleapis.com/css2?family=Inknut+Antiqua&family=Open+Sans&display=swap");
+<style is:global define:vars={{ background }}>
+	/* Futura-pt */
 	@font-face {
 		font-family: "futura-pt";
 		src: url("/fonts/FuturaPTBold.ttf") format("truetype");
@@ -44,6 +48,37 @@ const { title, showLogo } = Astro.props;
 		font-family: "futura-pt";
 		src: url("/fonts/FuturaPTMedium.ttf") format("truetype");
 		font-weight: 500;
+	}
+
+	/* Inknut Antiqua */
+	@font-face {
+		font-family: "Inknut Antiqua";
+		src: url("/fonts/InknutAntiqua-Bold.ttf") format("truetype");
+		font-weight: 700;
+	}
+
+	@font-face {
+		font-family: "Inknut Antiqua";
+		src: url("/fonts/InknutAntiqua-Light.ttf") format("truetype");
+		font-weight: 300;
+	}
+
+	@font-face {
+		font-family: "Inknut Antiqua";
+		src: url("/fonts/InknutAntiqua-Medium.ttf") format("truetype");
+		font-weight: 500;
+	}
+
+	@font-face {
+		font-family: "Inknut Antiqua";
+		src: url("/fonts/InknutAntiqua-Regular.ttf") format("truetype");
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: "Inknut Antiqua";
+		src: url("/fonts/InknutAntiqua-Semibold.ttf") format("truetype");
+		font-weight: 600;
 	}
 
 	:root {
@@ -66,7 +101,7 @@ const { title, showLogo } = Astro.props;
 
 	html {
 		font-family: "Inknut Antiqua", serif;
-		background: #13151a;
+		background: var(--background);
 	}
 	code {
 		font-family:
