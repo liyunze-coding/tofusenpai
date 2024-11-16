@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HEAVENMADE">
+	<main
+		class="container font-['futura-pt',sans-serif] m-auto pt-5 pb-10 px-4 w-[1440px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<div class="flex justify-center items-center">
+			<iframe
+				title="vimeo-player"
+				src="https://player.vimeo.com/video/341253314?h=01c17885ca"
+				width="1047"
+				height="438"
+				frameborder="0"
+				allowfullscreen></iframe>
+		</div>
+		<div
+			class="py-10 text-center flex justify-center items-center flex-col"
+		>
+			<h1 class="font-medium text-5xl text-center fadeIn">
+				TELL THE GIRL (2019)
+			</h1>
+			<ul id="credits" class="py-10">
+				<li class="fadeIn">music by GOLDEN VESSEL & EMERSON LEIF</li>
+				<li class="fadeIn">directed by WILLIAM YAO & AIDAN GIBNEY</li>
+				<li class="fadeIn">cinematography by AIDAN GIBNEY</li>
+				<li class="fadeIn">edited by WILLIAM YAO & AIDAN GIBNEY</li>
+				<li class="fadeIn">
+					starring JULIA ALAIMO, JASON DIAZ, and WILLIAM YAO
+				</li>
+				<li class="fadeIn">
+					danced by OLIVIA BATTISTA, JENNIFER MARGONO, RAYMUND
+					LAGDAMEN, and DAN SANTIAGO
+				</li>
+				<li class="fadeIn">color by AIDAN GIBNEY</li>
+				<li class="fadeIn">production company PAVILLIA</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	ul#credits li {
+		margin-bottom: 1rem;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 29px;
+	}
+</style>

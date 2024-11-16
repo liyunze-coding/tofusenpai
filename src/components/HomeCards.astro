@@ -21,27 +21,27 @@ import RightCard from "./SubComponents/RightCard.astro";
 <div id="home-cards" class="w-full relative hidden md:block">
 	<!-- LeftCard = Card on the left side -->
 	<LeftCard
-		href="/projects/give-me-love"
+		href="/give-me-love"
 		src={GiveMeLove}
 		alt="Give Me Love"
 		eager={true}
 		heading="GIVE ME LOVE"
 		subheading="(SHORT FILM)"
-		x="100px"
+		x="200px"
 		y="0px"
-		z="10px"
+		z="16px"
 		rotation="-6.15deg"
 	/>
 	<RightCard
-		href="/projects/daydreamers"
+		href="/daydreamers"
 		src={Daydreamers}
 		alt="Daydreamers"
 		heading="DAYDREAMERS"
 		subheading="(OFF-BROADWAY SHOW)"
 		eager={false}
-		x="-30px"
+		x="70px"
 		y="160px"
-		z="9px"
+		z="15px"
 		rotation="3deg"
 	/>
 	<LeftCard
@@ -50,12 +50,13 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="GRIMES COACHELLA 2024"
 		subheading="(MULTIMEDIA LIVE SHOW)"
 		eager={false}
-		x="50px"
+		x="150px"
 		y="400px"
-		z="8px"
+		z="14px"
 		rotation="-6.15deg"
 	/>
 	<RightCard
+		href="/asfar"
 		src={Rainbows}
 		alt="A short film about rainbows"
 		heading="A SHORT FILM ABOUT RAINBOWS"
@@ -63,10 +64,11 @@ import RightCard from "./SubComponents/RightCard.astro";
 		eager={false}
 		x="-50px"
 		y="600px"
-		z="9px"
+		z="13px"
 		rotation="5deg"
 	/>
 	<LeftCard
+		href="/shark-bait"
 		src={Sharkbait}
 		alt="Shark Bait"
 		heading="SHARKBAIT"
@@ -74,8 +76,66 @@ import RightCard from "./SubComponents/RightCard.astro";
 		eager={false}
 		x="120px"
 		y="800px"
-		z="7px"
+		z="12px"
 		rotation="-2.15deg"
+	/>
+	<RightCard
+		src={Twitchcon}
+		alt="Samsung x Twitch con 2023"
+		heading="SAMSUNG X TWITCH CON 2023"
+		subheading="(SHORT DOCUMENTARY)"
+		eager={false}
+		x="0px"
+		y="1000px"
+		z="11px"
+		rotation="5deg"
+	/>
+	<LeftCard
+		href="/heavenmade"
+		src={Heavenmade}
+		alt="Heavenmade"
+		heading="HEAVENMADE"
+		subheading="(MOVEMENT DIRECTION)"
+		eager={false}
+		x="120px"
+		y="1300px"
+		z="10px"
+		rotation="-3.15deg"
+	/>
+	<RightCard
+		href="/tell-the-girl"
+		src={TellTheGirl}
+		alt="Tell the girl"
+		heading="TELL THE GIRL"
+		subheading="(MUSIC VIDEO)"
+		eager={false}
+		x="220px"
+		y="1540px"
+		z="9px"
+		rotation="5deg"
+	/>
+	<LeftCard
+		href="/creator-culture"
+		src={CreatorCulture}
+		alt="Creator Culture"
+		heading="CREATOR CULTURE"
+		subheading="(DOCUMENTARY)"
+		eager={false}
+		x="120px"
+		y="1800px"
+		z="10px"
+		rotation="-5.15deg"
+	/>
+	<RightCard
+		src={DoIKnowYou}
+		alt="Do I Know You"
+		heading="DO I KNOW YOU?"
+		subheading="(SHORT FILM)"
+		eager={false}
+		x="220px"
+		y="2050px"
+		z="9px"
+		rotation="2deg"
 	/>
 
 	<div class="background-blur"></div>
@@ -84,7 +144,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 <style is:global lang="scss">
 	:root {
 		--cards-margin-top: 5rem; /* adjust the margin top  */
-		--cards-height: 1000px; /* adjust the cards component total height*/
+		--cards-height: 2300px; /* adjust the cards component total height*/
 	}
 
 	#home-cards {

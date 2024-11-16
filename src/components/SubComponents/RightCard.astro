@@ -20,17 +20,19 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 
 <a href={href} class="project relative w-full block">
 	<div class="flex justify-center items-center absolute">
-		<div class="project-detail text-box w-1/2">
-			{heading}
-			<br /><br />
-			{subheading}
+		<div class="project-detail text-box pr-5">
+			<div class="w-fit bg-secondary bg-opacity-50 px-2 py-2 rounded-md">
+				{heading}
+				<br /><br />
+				{subheading}
+			</div>
 		</div>
 		<div class="project-detail project-img right">
 			<Image
 				src={src}
 				alt={alt}
 				width="500"
-				class="rounded-lg"
+				class="rounded-lg fadeIn scaleIn"
 				loading={eager ? "eager" : "lazy"}
 			/>
 		</div>

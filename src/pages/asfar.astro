@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="A SHORT FILM ABOUT RAINBOWS">
+	<main
+		class="container font-['futura-pt',sans-serif] m-auto pt-5 pb-10 px-4 w-[1440px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<div class="flex justify-center items-center">
+			<iframe
+				title="vimeo-player"
+				src="https://player.vimeo.com/video/408147130?h=339b4bcd86"
+				width="1047.2"
+				height="590.4"
+				class="max-w-[calc(100%-2rem)]"
+				frameborder="0"
+				allowfullscreen></iframe>
+		</div>
+		<div
+			class="py-10 text-center flex justify-center items-center flex-col"
+		>
+			<h1 class="font-medium text-5xl text-center fadeIn">
+				A Short Film About Rainbows (2020)
+			</h1>
+			<ul id="credits" class="py-10">
+				<li class="fadeIn">
+					written and directed by KENZIE QUINN RATTRAY
+				</li>
+				<li class="fadeIn">produced by WILLIAM YAO</li>
+				<li class="fadeIn">animation by ASHLEY BLAND</li>
+				<li class="fadeIn">animation supervisor WILLIAM YAO</li>
+				<li class="fadeIn">original score by DASHER RATTRAY</li>
+				<li class="fadeIn">sound design by AUSTIN LEE</li>
+				<li class="fadeIn">narrated by KENZIE QUINN RATTRAY</li>
+				<li class="fadeIn">edited by WILLIAM YAO</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	ul#credits li {
+		margin-bottom: 1rem;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 29px;
+	}
+</style>

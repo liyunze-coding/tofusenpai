@@ -4,12 +4,17 @@ import HomeCards from "../components/HomeCards.astro";
 import MobileViewCards from "../components/MobileViewCards.astro";
 ---
 
-<Layout title="William Yao">
+<Layout title="William Yao" showLogo={false}>
 	<main
-		class="container m-auto py-20 px-4 w-[1000px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+		class="container m-auto py-20 px-4 w-[1200px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
 	>
-		<div class="md:w-[800px] mx-auto">
-			<h1 class="uppercase">WILLIAM "ZY" YAO</h1>
+		<a
+			href="/"
+			class="font-bold text-3xl tracking-[0.2em] font-['Inknut_Antiqua',serif] top-0 sticky z-[60]"
+		>
+			WILLIAM "ZY" YAO
+		</a>
+		<div class="md:w-[800px] mx-auto mt-10">
 			<p>
 				William is a multidisciplinary Director and Creative
 				Technologist who seeks for stories rooted in honest

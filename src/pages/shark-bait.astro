@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="SHARK BAIT">
+	<main
+		class="container font-['futura-pt',sans-serif] m-auto pt-5 pb-10 px-4 w-[1440px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<div class="flex justify-center items-center">
+			<iframe
+				title="vimeo-player"
+				src="https://player.vimeo.com/video/272863748?h=2cec3c9567"
+				width="1047.2"
+				height="590.4"
+				class="max-w-[calc(100%-2rem)]"
+				frameborder="0"
+				allowfullscreen></iframe>
+		</div>
+		<div
+			class="py-10 text-center flex justify-center items-center flex-col"
+		>
+			<h1 class="font-medium text-5xl text-center fadeIn">
+				Shark Bait (2018)
+			</h1>
+			<ul id="credits" class="py-10">
+				<li class="fadeIn">written and directed by WILLIAM YAO</li>
+				<li class="fadeIn">cinematography by ALPHONSE SILVESTRI</li>
+				<li class="fadeIn">edited by WILLIAM YAO</li>
+				<li class="fadeIn">
+					starring MEHDI EL HEBIL, NAT SWYER, and WILLIAM YAO
+				</li>
+				<li class="fadeIn">music by DARREN XU</li>
+				<li class="fadeIn">sound mix by AIM WONGHIRUNDACHA</li>
+				<li class="fadeIn">production assistant SARAH LEE CHOI</li>
+				<li class="fadeIn">production company TOASTIE FILMS</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	ul#credits li {
+		margin-bottom: 1rem;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 29px;
+	}
+</style>

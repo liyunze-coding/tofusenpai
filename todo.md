@@ -1,0 +1,10 @@
+- [ ] header title
+- [x] image sizing
+- [ ] other projects -
+- [x] intersection observer
+- [x] projects dropdown
+- [ ] header hamburger
+- [ ] about
+- [x] animate in give me love
+- [ ] mobile project images srcset
+- [ ] compress images

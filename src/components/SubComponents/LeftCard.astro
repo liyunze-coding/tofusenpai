@@ -25,14 +25,16 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 				src={src}
 				alt={alt}
 				width="500"
-				class="rounded-lg"
+				class="rounded-lg fadeIn scaleIn"
 				loading={eager ? "eager" : "lazy"}
 			/>
 		</div>
-		<div class="project-detail text-box w-1/2">
-			{heading}
-			<br /><br />
-			{subheading}
+		<div class="project-detail text-box pl-8">
+			<div class="w-fit bg-secondary bg-opacity-50 px-2 py-2 rounded-md">
+				{heading}
+				<br /><br />
+				{subheading}
+			</div>
 		</div>
 	</div>
 </a>

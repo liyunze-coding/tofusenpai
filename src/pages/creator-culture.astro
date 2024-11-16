@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VideoPreview from "../components/SubComponents/VideoPreview.astro";
+---
+
+<Layout title="GIVE ME LOVE (Short Film)">
+	<main
+		class="container m-auto pt-5 pb-10 px-4 w-[1000px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<VideoPreview
+			src="creator-culture.jpg"
+			url="https://www.youtube.com/embed/2cVxRUE3ZH0"
+			width="698px"
+			height="394px"
+		/>
+		<div
+			class="py-20 font-['futura-pt',sans-serif] text-center leading-9 font-light"
+		>
+			<h1 class="fadeIn text-5xl text-center font-medium">
+				CREATOR CULTURE (2019)
+			</h1>
+
+			<ul>
+				<li class="fadeIn">executive producers CASEY NEISTAT</li>
+				<li class="fadeIn">directed by WILLIAM YAO</li>
+				<li class="fadeIn">produced by WILLIAM YAO, AIDAN GIBNEY</li>
+				<li class="fadeIn">cinematography by AIDAN GIBNEY</li>
+				<li class="fadeIn">
+					featuring ELLA D'SOUZA, VICTORIA LEWIS, and COLLIN CORNWELL
+				</li>
+			</ul>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main > div > *:not(h1) {
+		font-size: 1rem;
+		line-height: 1.25rem;
+		line-height: 2rem;
+	}
+
+	li {
+		margin: 12px 0;
+	}
+</style>

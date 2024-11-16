@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Gallery1 from "../components/daydreamers/DaydreamersGallery.astro";
+import Gallery2 from "../components/daydreamers/DaydreamersGallery2.astro";
+import Quote from "../components/Quote.astro";
+---
+
+<Layout title="Daydreamers">
+	<main
+		class="container font-['futura-pt',sans-serif] m-auto pt-5 pb-10 px-4 w-[1440px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<Gallery1 />
+		<div
+			class="text-center pt-20 flex flex-col justify-center items-center"
+		>
+			<h2 class="fadeIn font-medium text-6xl">Watch Our Film!</h2>
+			<p class="fadeIn mt-10 font-light text-[16px] w-auto lg:w-2/3">
+				Daydreamers concluded its final theater run in January 2020. To
+				preserve our daydream, we created a film stitched together from
+				footage from all the shows.
+			</p>
+
+			<div class="mt-5 flex justify-center items-center">
+				<iframe
+					width="693.600"
+					height="391.200"
+					src="https://www.youtube.com/embed/mcgVARIw3Pw"
+					title="DAYDREAMERS THE FILM"
+					class="max-w-[calc(100%-2rem)]"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerpolicy="strict-origin-when-cross-origin"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+		<div id="quotes" class="py-20">
+			<div
+				class="flex flex-col md:flex-row justify-center items-center gap-10 max-w-[calc(100%-4rem)] mx-auto"
+			>
+				<div>
+					<Quote
+						quote="...connects with its viewers on multiple levels and provide a new take on the queer and Asian American narrative"
+						source="TIMEOUT"
+						className="mb-10 fadeIn"
+					/>
+					<Quote
+						quote="It’s kind of a living film, it expounds a similar thrill of feeling like one is actually in the film as Being Jon Malkovich"
+						source="Dennis Adaimo, BAZA STUDIO"
+						className="fadeIn"
+					/>
+				</div>
+				<div>
+					<Quote
+						quote="...interdisciplinary in its nature and exemplifies, like never before, the synergy created between dance, film, music, visual art and photography."
+						source="ALL ARTS"
+						className="fadeIn"
+					/>
+				</div>
+			</div>
+		</div>
+		<Gallery2 />
+	</main>
+</Layout>

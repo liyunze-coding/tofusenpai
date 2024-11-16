@@ -1,0 +1,19 @@
+---
+interface Props {
+	quote: string;
+	source: string;
+	className?: string | "";
+}
+
+const { quote, source, className } = Astro.props;
+---
+
+<div
+	class="flex flex-col justify-center items-center gap-5"
+	class:list={className}
+>
+	<div class="text-[27px] leading-[37px] italic font-medium text-center">
+		"{quote}"
+	</div>
+	<div class="italic text-[16px]">— {source}</div>
+</div>
