@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import InfiniteScroll from "../components/InfiniteScroll.astro";
-import VideoPreview from "../components/SubComponents/VideoPreview.astro";
+import VideoPreview from "../components/VideoPreview.astro";
 ---
 
 <Layout title="A SHORT FILM ABOUT RAINBOWS" background="#000">
 	<main
-		class="container bg-black m-auto pt-20 pb-10 px-4 w-[1425px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+		class=`container bg-black m-auto 
+		pt-20 pb-10 px-4 overflow-x-hidden
+		w-[1425px] max-w-[calc(100%-2rem)] text-white text-[20px] md:text-[27px] leading-[37px]`
 	>
 		<!-- Inspiration -->
 		<InfiniteScroll
@@ -16,10 +18,10 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 		/>
 
 		<div
-			class="mt-14 flex flex-col lg:flex-row justify-between items-start gap-8"
+			class="mt-14 flex flex-col xl:flex-row justify-center xl:justify-between items-center xl:items-start gap-8"
 		>
 			<!-- text on the left -->
-			<div class="w-[45%]">
+			<div class="w-full sm:w-[70%] xl:w-[45%] fadeIn">
 				<p>
 					In 2023, GRIMES debuts a clone of herself under the name
 					GRIMES AI using state-of-the-art technologies which advanced
@@ -42,16 +44,19 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 					reprogramming the human computer.
 				</p>
 			</div>
-			<div class="w-[692px]">
+			<div class="w-[692px] max-w-full">
 				<img
-					src="/grimes/Coachella+Pill.png"
+					src="/grimes/Coachella+Pill.webp"
 					alt="Coachella Pill"
 					width="692"
+					class="max-w-full"
 				/>
 			</div>
 		</div>
 
-		<div class="w-full mt-40 flex flex-col justify-center items-center">
+		<div
+			class="w-full mt-40 flex flex-col justify-center items-center gap-10"
+		>
 			<!-- 01 concept -->
 			<InfiniteScroll
 				text="01://THE CONCEPT"
@@ -59,61 +64,65 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 				className="fadeIn"
 			/>
 
-			<p class="text-left italic text mt-5 w-[35%]">
+			<p
+				class="text-center xl:text-left italic text mt-5 w-full xl:w-[35%] fadeIn"
+			>
 				GRIMES IS IN THE MACHINE. and GRIMES IS THE MACHINE.
 			</p>
-			<div class="relative w-full h-[1410px] mt-10">
+			<div
+				class="relative w-full h-fit min-h-[1410px] xl:mt-10 flex flex-col justify-center items-center gap-10"
+			>
 				<img
-					src="/grimes/thumbnail.jpg"
+					src="/grimes/thumbnail.webp"
 					alt="thumbnail"
 					width="798"
-					class="absolute left-[40px]"
+					class="static xl:absolute top-0 left-[2%] max-w-full"
 				/>
-				<p class="absolute w-[37%] left-[640px] top-[40px]">
+				<p
+					class="static xl:absolute w-full sm:w-[60%] xl:w-[37%] left-[640px] top-[40px] fadeIn"
+				>
 					We want to offer a once in a lifetime experience for
 					COACHELLA to cement the bridge between humans and machines,
 					leading us into a bold new future for HOMOTECHNO. The core
 					concepts are THE MACHINES, THE MONOLITH, and THE AI CINEMA
 				</p>
-				<p class="absolute w-[50%] left-[120px] top-[480px]">
+				<p
+					class="static xl:absolute w-full sm:w-[60%] xl:w-[50%] left-[120px] top-[480px] fadeIn"
+				>
 					EXOSAPIEN created the SPIDER MACHINE that GRIMES entered the
 					stage on.
 				</p>
 				<video
 					src="/grimes/Grimes_Monolith_Video.webm"
 					width="200"
-					class="z-10 absolute top-[600px] left-[200px]"
+					class="z-10 static xl:absolute top-[600px] left-[200px]"
 					loop
 					muted
 					autoplay></video>
 				<video
 					src="/grimes/monolith_test_person.webm"
 					width="200"
-					class="z-10 absolute top-[800px] left-[280px]"
+					class="z-10 static xl:absolute top-[800px] left-[280px]"
 					loop
 					muted
 					autoplay></video>
 				<img
-					src="/grimes/modi-01.jpeg"
+					src="/grimes/modi-01.webp"
 					alt="monolith"
 					width="400"
-					class="absolute left-[870px] top-[370px]"
+					class="static xl:absolute right-[110px] top-[370px] fadeIn"
 				/>
-				<p class="absolute w-[50%] left-[530px] top-[810px]">
+				<p
+					class="static xl:absolute w-full sm:w-[60%] xl:w-[50%] left-[530px] top-[810px] fadeIn"
+				>
 					xiteLabs built the MONOLITH for the stage, produced the AI
 					CINEMA that Daito Manabe & Rhizomatiks created the motion
 					capture for
 				</p>
-				<img
-					src="/grimes/modi-01.jpeg"
-					alt="monolith"
-					width="400"
-					class="absolute left-[870px] top-[370px]"
-				/>
 				<video
 					src="/grimes/ai_cine.webm"
 					width="450"
-					class="z-10 absolute top-[1000px] left-[820px]"
+					class="z-10 static xl:absolute top-[1000px] right-[100px]"
 					loop
 					muted
 					autoplay></video>
@@ -124,20 +133,24 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 					duration="25s"
 					className="fadeIn mt-10"
 				/>
-				<div class="relative w-full h-[900px] mt-10">
+				<div
+					class="relative w-full h-fit min-h-[900px] mt-10 flex flex-col justify-center items-center gap-10"
+				>
 					<img
-						src="/grimes/illustration.png"
+						src="/grimes/illustration.webp"
 						alt="illustration"
 						width="400"
-						class="absolute left-0 top-[180px]"
+						class="static xl:absolute left-0 top-[180px] fadeIn"
 					/>
 					<img
-						src="/grimes/image-2.png"
+						src="/grimes/image-2.webp"
 						alt="illustration"
 						width="634"
-						class="absolute right-0 top-[0px]"
+						class="static xl:absolute right-0 top-[0px] fadeIn"
 					/>
-					<p class="absolute w-[33%] left-[470px] top-[200px]">
+					<p
+						class="static xl:absolute w-full sm:w-[60%] xl:w-[33%] left-[470px] top-[200px] fadeIn"
+					>
 						We imagined a large cyber-capsule that “crash landed”,
 						serving as a custom built DJ Booth for Grimes. Cradled
 						ontop of a well-formed crater support system, this is no
@@ -145,10 +158,10 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 						that has found its way into the oasis of COACHELLA
 					</p>
 					<img
-						src="/grimes/illustration-2.png"
+						src="/grimes/illustration-2.webp"
 						alt="illustration"
 						width="460"
-						class="absolute right-0 top-[475px]"
+						class="static xl:absolute right-0 top-[475px] fadeIn"
 					/>
 				</div>
 			</div>
@@ -158,25 +171,29 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 					duration="25s"
 					className="fadeIn mt-20"
 				/>
-				<div class="relative w-full h-[1210px] mt-20">
+				<div
+					class="relative w-full h-fit min-h-[1210px] mt-20 flex xl:block justify-center items-center flex-col gap-10"
+				>
 					<video
 						src="/grimes/result1.webm"
 						width="260"
-						class="z-10 absolute top-[500px] left-[50px]"
+						class="z-10 static xl:absolute top-[750px] left-[80px] fadeIn"
 						loop
 						muted
 						autoplay></video>
 
 					<img
-						src="/grimes/result2.jpg"
+						src="/grimes/result2.webp"
 						alt=""
 						width="223"
-						class="z-20 absolute top-[500px] left-[350px]"
+						class="z-20 static xl:absolute top-[500px] left-[350px] fadeIn"
 					/>
 
-					<div>
+					<div
+						class="w-[692px] h-[391px] mx-auto max-w-full aspect-video"
+					>
 						<VideoPreview
-							src="grimes.jpg"
+							src="grimes.webp"
 							url="https://www.youtube.com/embed/nP1-9fcQxHw"
 							width="692px"
 							height="391px"
@@ -184,60 +201,81 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 					</div>
 
 					<img
-						src="/grimes/result3.jpg"
+						src="/grimes/result3.webp"
 						alt="result"
 						width="223"
-						class="absolute top-[700px] right-[125px]"
+						class="static xl:absolute top-[700px] right-[125px] fadeIn"
 					/>
 
 					<video
 						src="/grimes/result4.webm"
 						width="260"
-						class="z-10 absolute top-[500px] left-[780px]"
+						class="z-10 static xl:absolute top-[500px] left-[780px] fadeIn"
 						loop
 						muted
 						autoplay></video>
 					<video
 						src="/grimes/result5.webm"
 						width="200"
-						class="z-10 absolute top-[680px] left-[610px]"
+						class="z-10 static xl:absolute top-[680px] left-[610px] fadeIn"
 						loop
 						muted
 						autoplay></video>
 				</div>
 			</div>
 			<div class="w-full flex flex-col justify-center items-center">
-				<div class="columns-4" id="gallery-3">
+				<!-- gallery -->
+				<div class="columns-2 lg:columns-3 xl:columns-4" id="gallery-3">
 					<img
-						src="/grimes/gallery-1.jpeg"
+						src="/grimes/gallery-1.webp"
 						alt="illustration"
 						width="323"
+						class="scaleIn fadeIn"
 					/>
-					<img src="grimes/gallery-2.png" alt="sketch" width="323" />
 					<img
-						src="/grimes/gallery-sketch.jpeg"
+						src="grimes/gallery-2.webp"
+						alt="sketch"
+						width="323"
+						class="scaleIn fadeIn"
+					/>
+					<img
+						src="/grimes/gallery-sketch.webp"
 						alt="illustration"
 						width="323"
+						class="scaleIn fadeIn"
 					/>
 
-					<img src="grimes/modi-02.jpeg" alt="sketch" width="323" />
-
 					<img
-						src="grimes/0A85DCFB-1902-438D-B6F7-A725EE26E6FEcachedImage.png"
+						src="grimes/modi-02.webp"
 						alt="sketch"
 						width="323"
+						class="scaleIn fadeIn"
 					/>
 
-					<img src="grimes/modi-03.jpeg" alt="modi" width="323" />
 					<img
-						src="grimes/53BFA0F6-84C5-4009-8EF7-F89E70DAFFC5Pill__Wings_Concept.png"
+						src="grimes/0A85DCFB-1902-438D-B6F7-A725EE26E6FEcachedImage.webp"
 						alt="sketch"
 						width="323"
+						class="scaleIn fadeIn"
 					/>
+
 					<img
-						src="grimes/illustration-2.png"
+						src="grimes/modi-03.webp"
 						alt="modi"
 						width="323"
+						class="scaleIn fadeIn"
+					/>
+					<img
+						src="grimes/53BFA0F6-84C5-4009-8EF7-F89E70DAFFC5Pill__Wings_Concept.webp"
+						alt="sketch"
+						width="323"
+						class="scaleIn fadeIn"
+					/>
+					<img
+						src="grimes/illustration-2.webp"
+						alt="modi"
+						width="323"
+						class="scaleIn fadeIn"
 					/>
 				</div>
 			</div>
@@ -248,12 +286,11 @@ import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 <style>
 	p {
 		font-family: "futura-pt", sans-serif;
-		font-size: 27px;
-		line-height: 37px;
 		font-weight: 500;
+		z-index: 40;
 	}
 
 	#gallery-3 img {
-		margin-bottom: 2rem;
+		margin-bottom: 1.3rem;
 	}
 </style>

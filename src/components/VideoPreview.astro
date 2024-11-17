@@ -1,0 +1,89 @@
+---
+interface Props {
+	src: string;
+	url: string;
+	width: string;
+	height: string;
+}
+
+let { src, url, width, height } = Astro.props;
+
+src = `url("/thumbnails/${src}")`;
+---
+
+<div
+	class="video-container mx-auto aspect-w-16 aspect-h-9 md:aspect-auto max-w-full"
+	tabindex="0"
+>
+	<!-- Preview image -->
+	<!-- Play Button -->
+	<div class="play-button z-10">▶</div>
+
+	<!-- YouTube Video Embed (initially hidden) -->
+	<iframe
+		class="video-embed aspect-w-16 aspect-h-9 md:aspect-auto"
+		id="video"
+		width={width}
+		height={height}
+		src={url}
+		title="Give Me Love (2024)"
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		referrerpolicy="strict-origin-when-cross-origin"
+		allowfullscreen></iframe>
+</div>
+
+<script is:inline define:vars={{ url }}>
+	const videoContainer = document.querySelector(".video-container");
+	videoContainer.addEventListener("click", playVideo);
+
+	function playVideo() {
+		// Hide overlay content
+		document.querySelector(".play-button").style.display = "none";
+
+		let videoEmbed = document.querySelector(".video-embed");
+		videoEmbed.src = `${url}?autoplay=1`;
+
+		setTimeout(() => {
+			videoEmbed.style.display = "block";
+		}, 1000);
+	}
+</script>
+
+<style define:vars={{ src, width, height }}>
+	.video-container {
+		position: relative;
+		width: var(--width);
+		height: var(--height);
+		background-image: var(--src);
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	/* Red overlay text */
+
+	/* Play button */
+	.play-button {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 2.5rem;
+		color: white;
+		background-color: rgba(0, 0, 0, 0);
+		border-radius: 50%;
+		padding: 10px;
+		text-align: center;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	/* Hide YouTube iframe initially */
+	.video-embed {
+		display: none;
+	}
+</style>
