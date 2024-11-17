@@ -9,3 +9,4 @@
 - [ ] mobile project images srcset
 - [ ] compress images
 - [ ] view transitions
+- [x] grimes

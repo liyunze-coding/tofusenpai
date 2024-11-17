@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import InfiniteScroll from "../components/InfiniteScroll.astro";
+import VideoPreview from "../components/SubComponents/VideoPreview.astro";
 ---
 
 <Layout title="A SHORT FILM ABOUT RAINBOWS" background="#000">
@@ -61,7 +62,7 @@ import InfiniteScroll from "../components/InfiniteScroll.astro";
 			<p class="text-left italic text mt-5 w-[35%]">
 				GRIMES IS IN THE MACHINE. and GRIMES IS THE MACHINE.
 			</p>
-			<div class="relative w-full h-[1000px] mt-10">
+			<div class="relative w-full h-[1410px] mt-10">
 				<img
 					src="/grimes/thumbnail.jpg"
 					alt="thumbnail"
@@ -78,15 +79,167 @@ import InfiniteScroll from "../components/InfiniteScroll.astro";
 					EXOSAPIEN created the SPIDER MACHINE that GRIMES entered the
 					stage on.
 				</p>
-				<!-- video -->
-				<!-- video -->
-				<img src="/grimes/modi-01.jpeg" alt="monolith" width="400" />
-				<p class="absolute w-[50%] left-[525px] top-[810px]">
+				<video
+					src="/grimes/Grimes_Monolith_Video.webm"
+					width="200"
+					class="z-10 absolute top-[600px] left-[200px]"
+					loop
+					muted
+					autoplay></video>
+				<video
+					src="/grimes/monolith_test_person.webm"
+					width="200"
+					class="z-10 absolute top-[800px] left-[280px]"
+					loop
+					muted
+					autoplay></video>
+				<img
+					src="/grimes/modi-01.jpeg"
+					alt="monolith"
+					width="400"
+					class="absolute left-[870px] top-[370px]"
+				/>
+				<p class="absolute w-[50%] left-[530px] top-[810px]">
 					xiteLabs built the MONOLITH for the stage, produced the AI
 					CINEMA that Daito Manabe & Rhizomatiks created the motion
 					capture for
 				</p>
-				<!-- video -->
+				<img
+					src="/grimes/modi-01.jpeg"
+					alt="monolith"
+					width="400"
+					class="absolute left-[870px] top-[370px]"
+				/>
+				<video
+					src="/grimes/ai_cine.webm"
+					width="450"
+					class="z-10 absolute top-[1000px] left-[820px]"
+					loop
+					muted
+					autoplay></video>
+			</div>
+			<div class="w-full flex flex-col justify-center items-center">
+				<InfiniteScroll
+					text="02://THE CONCEPT"
+					duration="25s"
+					className="fadeIn mt-10"
+				/>
+				<div class="relative w-full h-[900px] mt-10">
+					<img
+						src="/grimes/illustration.png"
+						alt="illustration"
+						width="400"
+						class="absolute left-0 top-[180px]"
+					/>
+					<img
+						src="/grimes/image-2.png"
+						alt="illustration"
+						width="634"
+						class="absolute right-0 top-[0px]"
+					/>
+					<p class="absolute w-[33%] left-[470px] top-[200px]">
+						We imagined a large cyber-capsule that “crash landed”,
+						serving as a custom built DJ Booth for Grimes. Cradled
+						ontop of a well-formed crater support system, this is no
+						ordinary DJ Booth, this is a highly-advanced machine
+						that has found its way into the oasis of COACHELLA
+					</p>
+					<img
+						src="/grimes/illustration-2.png"
+						alt="illustration"
+						width="460"
+						class="absolute right-0 top-[475px]"
+					/>
+				</div>
+			</div>
+			<div class="w-full flex flex-col justify-center items-center">
+				<InfiniteScroll
+					text="03://THE RESULT"
+					duration="25s"
+					className="fadeIn mt-20"
+				/>
+				<div class="relative w-full h-[1210px] mt-20">
+					<video
+						src="/grimes/result1.webm"
+						width="260"
+						class="z-10 absolute top-[500px] left-[50px]"
+						loop
+						muted
+						autoplay></video>
+
+					<img
+						src="/grimes/result2.jpg"
+						alt=""
+						width="223"
+						class="z-20 absolute top-[500px] left-[350px]"
+					/>
+
+					<div>
+						<VideoPreview
+							src="grimes.jpg"
+							url="https://www.youtube.com/embed/nP1-9fcQxHw"
+							width="692px"
+							height="391px"
+						/>
+					</div>
+
+					<img
+						src="/grimes/result3.jpg"
+						alt="result"
+						width="223"
+						class="absolute top-[700px] right-[125px]"
+					/>
+
+					<video
+						src="/grimes/result4.webm"
+						width="260"
+						class="z-10 absolute top-[500px] left-[780px]"
+						loop
+						muted
+						autoplay></video>
+					<video
+						src="/grimes/result5.webm"
+						width="200"
+						class="z-10 absolute top-[680px] left-[610px]"
+						loop
+						muted
+						autoplay></video>
+				</div>
+			</div>
+			<div class="w-full flex flex-col justify-center items-center">
+				<div class="columns-4" id="gallery-3">
+					<img
+						src="/grimes/gallery-1.jpeg"
+						alt="illustration"
+						width="323"
+					/>
+					<img src="grimes/gallery-2.png" alt="sketch" width="323" />
+					<img
+						src="/grimes/gallery-sketch.jpeg"
+						alt="illustration"
+						width="323"
+					/>
+
+					<img src="grimes/modi-02.jpeg" alt="sketch" width="323" />
+
+					<img
+						src="grimes/0A85DCFB-1902-438D-B6F7-A725EE26E6FEcachedImage.png"
+						alt="sketch"
+						width="323"
+					/>
+
+					<img src="grimes/modi-03.jpeg" alt="modi" width="323" />
+					<img
+						src="grimes/53BFA0F6-84C5-4009-8EF7-F89E70DAFFC5Pill__Wings_Concept.png"
+						alt="sketch"
+						width="323"
+					/>
+					<img
+						src="grimes/illustration-2.png"
+						alt="modi"
+						width="323"
+					/>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -98,5 +251,9 @@ import InfiniteScroll from "../components/InfiniteScroll.astro";
 		font-size: 27px;
 		line-height: 37px;
 		font-weight: 500;
+	}
+
+	#gallery-3 img {
+		margin-bottom: 2rem;
 	}
 </style>
