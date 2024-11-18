@@ -18,9 +18,9 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 	Astro.props;
 ---
 
-<a href={href} class="project relative block w-[800px]">
-	<div class="flex justify-center items-center absolute">
-		<div class="project-detail project-img left">
+<a href={href} class="project absolute" data-z-index={z}>
+	<div class="flex justify-center items-center w-[600px] lg:w-[900px]">
+		<div class="project-detail project-img left w-[500px]">
 			<Image
 				src={src}
 				alt={alt}
@@ -29,8 +29,10 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 				loading={eager ? "eager" : "lazy"}
 			/>
 		</div>
-		<div class="project-detail text-box pl-8">
-			<div class="w-fit bg-secondary bg-opacity-50 px-2 py-2 rounded-md">
+		<div class="project-detail text-box pl-8 w-[400px]">
+			<div
+				class="w-fit bg-secondary bg-opacity-50 px-2 py-2 rounded-md text-3xl"
+			>
 				{heading}
 				<br /><br />
 				{subheading}
@@ -40,9 +42,10 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 </a>
 
 <style define:vars={{ x, y, z, rotation }}>
-	.project > div {
-		transform: translateX(var(--x)) translateY(var(--y))
-			translateZ(var(--z));
+	.project {
+		transform: translateX(calc(-50% + var(--x))) translateY(var(--y));
+
+		left: 50%;
 	}
 
 	.left {

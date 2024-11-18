@@ -7,6 +7,6 @@
 - [ ] about
 - [x] animate in give me love
 - [ ] mobile project images srcset
-- [ ] compress images
+- [x] compress images
 - [ ] view transitions
 - [x] grimes

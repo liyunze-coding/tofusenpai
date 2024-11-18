@@ -16,7 +16,7 @@ import LeftCard from "./SubComponents/LeftCard.astro";
 import RightCard from "./SubComponents/RightCard.astro";
 ---
 
-<div id="home-cards" class="w-full relative hidden md:block">
+<div id="home-cards" class="w-full relative hidden lg:block">
 	<!-- LeftCard = Card on the left side -->
 	<LeftCard
 		href="/give-me-love"
@@ -25,9 +25,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 		eager={true}
 		heading="GIVE ME LOVE"
 		subheading="(SHORT FILM)"
-		x="200px"
+		x="-10px"
 		y="0px"
-		z="16px"
+		z="16"
 		rotation="-6.15deg"
 	/>
 	<RightCard
@@ -37,21 +37,21 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="DAYDREAMERS"
 		subheading="(OFF-BROADWAY SHOW)"
 		eager={false}
-		x="70px"
-		y="160px"
-		z="15px"
+		x="10px"
+		y="240px"
+		z="15"
 		rotation="3deg"
 	/>
-	<!-- <LeftCard
+	<LeftCard
 		href="/grimes"
 		src={Grimes}
 		alt="Grimes Coachella 2024"
 		heading="GRIMES COACHELLA 2024"
 		subheading="(MULTIMEDIA LIVE SHOW)"
 		eager={false}
-		x="150px"
-		y="400px"
-		z="14px"
+		x="10px"
+		y="500px"
+		z="14"
 		rotation="-6.15deg"
 	/>
 	<RightCard
@@ -61,9 +61,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="A SHORT FILM ABOUT RAINBOWS"
 		subheading="(ANIMATION)"
 		eager={false}
-		x="-50px"
-		y="600px"
-		z="13px"
+		x="-10px"
+		y="760px"
+		z="13"
 		rotation="5deg"
 	/>
 	<LeftCard
@@ -73,10 +73,10 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="SHARKBAIT"
 		subheading="(SHORT FILM)"
 		eager={false}
-		x="120px"
-		y="800px"
-		z="12px"
-		rotation="-2.15deg"
+		x="10px"
+		y="1000px"
+		z="12"
+		rotation="-5.15deg"
 	/>
 	<RightCard
 		src={Twitchcon}
@@ -85,8 +85,8 @@ import RightCard from "./SubComponents/RightCard.astro";
 		subheading="(SHORT DOCUMENTARY)"
 		eager={false}
 		x="0px"
-		y="1000px"
-		z="11px"
+		y="1250px"
+		z="11"
 		rotation="5deg"
 	/>
 	<LeftCard
@@ -96,9 +96,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="HEAVENMADE"
 		subheading="(MOVEMENT DIRECTION)"
 		eager={false}
-		x="125px"
-		y="1300px"
-		z="10px"
+		x="0px"
+		y="1550px"
+		z="10"
 		rotation="-3.15deg"
 	/>
 	<RightCard
@@ -108,9 +108,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="TELL THE GIRL"
 		subheading="(MUSIC VIDEO)"
 		eager={false}
-		x="220px"
-		y="1540px"
-		z="9px"
+		x="0px"
+		y="1800px"
+		z="9"
 		rotation="5deg"
 	/>
 	<LeftCard
@@ -120,9 +120,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="CREATOR CULTURE"
 		subheading="(DOCUMENTARY)"
 		eager={false}
-		x="120px"
-		y="1800px"
-		z="10px"
+		x="0px"
+		y="2050px"
+		z="8"
 		rotation="-5.15deg"
 	/>
 	<RightCard
@@ -131,11 +131,11 @@ import RightCard from "./SubComponents/RightCard.astro";
 		heading="DO I KNOW YOU?"
 		subheading="(SHORT FILM)"
 		eager={false}
-		x="220px"
-		y="2050px"
-		z="9px"
+		x="0px"
+		y="2300px"
+		z="7"
 		rotation="2deg"
-	/> -->
+	/>
 
 	<div class="background-blur"></div>
 </div>
@@ -143,7 +143,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 <style is:global lang="scss">
 	:root {
 		--cards-margin-top: 5rem; /* adjust the margin top  */
-		--cards-height: 2400px; /* adjust the cards component total height*/
+		--cards-height: 2600px; /* adjust the cards component total height*/
 	}
 
 	#home-cards {
@@ -152,6 +152,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 	}
 
 	.project {
+		z-index: 3;
 		transition:
 			transform 600ms ease-in,
 			filter 300ms ease-in,
@@ -192,10 +193,6 @@ import RightCard from "./SubComponents/RightCard.astro";
 		}
 	}
 
-	.project {
-		z-index: 3;
-	}
-
 	.background-blur {
 		position: fixed;
 		top: 0;
@@ -207,3 +204,50 @@ import RightCard from "./SubComponents/RightCard.astro";
 		transition: backdrop-filter 350ms ease;
 	}
 </style>
+
+<script is:inline>
+	let savedIndex = -1;
+	document.addEventListener("DOMContentLoaded", () => {
+		let cards = document.getElementsByClassName("project");
+
+		const resetCardIndex = () => {
+			for (let x = 0; x < cards.length; x++) {
+				cards[x].style.zIndex = cards[x].getAttribute("data-z-index");
+			}
+		};
+
+		const computeNewZIndex = (i) => {
+			let leftNeighbour = 0;
+			let rightNeighbour = 0;
+			if (i !== 0) {
+				leftNeighbour = parseInt(cards[i - 1].style.zIndex);
+			}
+			if (i !== cards.length - 1) {
+				rightNeighbour = parseInt(cards[i + 1].style.zIndex);
+			}
+
+			let newZIndex = Math.max(leftNeighbour, rightNeighbour) + 1;
+			return newZIndex;
+		};
+
+		for (let i = 0; i < cards.length; i++) {
+			resetCardIndex();
+			cards[i].addEventListener("mouseover", () => {
+				if (i !== savedIndex) {
+					savedIndex = i;
+				} else {
+					return;
+				}
+
+				let newZIndex = computeNewZIndex(i);
+
+				if (newZIndex > 40) {
+					resetCardIndex();
+					newZIndex = computeNewZIndex(i);
+				}
+
+				cards[i].style.zIndex = newZIndex;
+			});
+		}
+	});
+</script>
