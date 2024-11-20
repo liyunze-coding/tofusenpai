@@ -57,6 +57,7 @@ const links: Link[] = [
 	{
 		showLogo && (
 			<a
+				transition:name="header-logo"
 				href="/"
 				class="font-bold text-lg md:text-xl lg:text-3xl tracking-[0.2em] font-['Inknut_Antiqua',serif] md:text-nowrap z-[80]
 				left-5 md:left-1/2 md:-translate-x-1/2 absolute w-[70%] md:w-fit
@@ -69,6 +70,7 @@ const links: Link[] = [
 	<div class="flex justify-end items-center gap-10">
 		<div class="flex flex-col items-end justify-end relative">
 			<a
+				transition:name="projects-link"
 				href="/projects"
 				onclick="return false"
 				class="peer hidden md:block px-5 py-2 text-white underline-offset-8"
@@ -94,6 +96,7 @@ const links: Link[] = [
 		</div>
 
 		<a
+			transition:name="about-link"
 			id="about-anchor"
 			href="/about"
 			class="underline-offset-8 hidden md:block"

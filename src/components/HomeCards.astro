@@ -211,8 +211,9 @@ import RightCard from "./SubComponents/RightCard.astro";
 </style>
 
 <script is:inline>
-	let savedIndex = -1;
-	document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("astro:page-load", () => {
+		let savedIndex = -1;
+
 		let cards = document.getElementsByClassName("project");
 
 		const resetCardIndex = () => {

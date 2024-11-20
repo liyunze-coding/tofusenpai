@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 interface Props {
 	title: string;
@@ -25,6 +26,7 @@ background = background ?? "#13151a";
 	<body>
 		<Header showLogo={showLogo} active={active} />
 		<slot />
+		<ViewTransitions />
 	</body>
 </html>
 <style is:global define:vars={{ background }}>
@@ -144,14 +146,16 @@ background = background ?? "#13151a";
 </style>
 
 <script is:inline>
-	const hiddenElements = document.querySelectorAll(".fadeIn");
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add("show");
-			}
+	document.addEventListener("astro:page-load", () => {
+		const hiddenElements = document.querySelectorAll(".fadeIn");
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("show");
+				}
+			});
 		});
-	});
 
-	hiddenElements.forEach((el) => observer.observe(el));
+		hiddenElements.forEach((el) => observer.observe(el));
+	});
 </script>

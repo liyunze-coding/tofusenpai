@@ -30,7 +30,7 @@ const { links } = Astro.props;
 			<button
 				class="text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300 flex flex-row justify-center items-center"
 				aria-label="Projects"
-				onclick="openSecondarySidebar()"
+				id="projects-mobile"
 				>Projects <svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -48,7 +48,7 @@ const { links } = Astro.props;
 			</button>
 			<a
 				class="sidebar-url text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300"
-				href="/">About</a
+				href="/about">About</a
 			>
 		</nav>
 	</aside>
@@ -60,7 +60,7 @@ const { links } = Astro.props;
 			<button
 				class="text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300 flex flex-row justify-center items-center"
 				aria-label="Projects"
-				onclick="closeSecondarySidebar()"
+				id="mobile-projects-back"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -209,85 +209,106 @@ const { links } = Astro.props;
 </style>
 
 <script defer is:inline>
-	const sidebarURLs = document.querySelectorAll(".sidebar-url");
-	const hamburger = document.querySelector(".hamburger-menu");
-	const checkbox = document.querySelector("input");
-	const primarySidebar = document.querySelector("#primary-sidebar");
-	const secondarySidebar = document.querySelector("#secondary-sidebar");
-	const topBun = document.querySelector(".top-bun");
-	const bottomBun = document.querySelector(".bottom-bun");
+	document.addEventListener("astro:page-load", () => {
+		const sidebarURLs = document.querySelectorAll(".sidebar-url");
+		const hamburger = document.querySelector(".hamburger-menu");
+		const checkbox = document.querySelector("input");
+		const primarySidebar = document.querySelector("#primary-sidebar");
+		const secondarySidebar = document.querySelector("#secondary-sidebar");
+		const topBun = document.querySelector(".top-bun");
+		const bottomBun = document.querySelector(".bottom-bun");
 
-	const openPrimarySidebar = () => {
-		document.body.classList.add("menu-open");
+		const openPrimarySidebar = () => {
+			document.body.classList.add("menu-open");
 
-		checkbox.checked = true;
+			checkbox.checked = true;
 
-		primarySidebar.classList.add("active");
-		hamburger.classList.add("active");
-		topBun.classList.add("active");
-		bottomBun.classList.add("active");
-	};
+			primarySidebar.classList.add("active");
+			hamburger.classList.add("active");
+			topBun.classList.add("active");
+			bottomBun.classList.add("active");
+		};
 
-	const openSecondarySidebar = () => {
-		document.body.classList.add("menu-open");
-		secondarySidebar.classList.add("active");
-	};
+		const openSecondarySidebar = () => {
+			document.body.classList.add("menu-open");
+			secondarySidebar.classList.add("active");
+		};
 
-	const closePrimarySidebar = () => {
-		document.body.classList.remove("menu-open");
-		checkbox.checked = false;
+		const closePrimarySidebar = () => {
+			document.body.classList.remove("menu-open");
+			checkbox.checked = false;
 
-		hamburger.classList.remove("active");
-		topBun.classList.remove("active");
-		bottomBun.classList.remove("active");
-		primarySidebar.classList.remove("active");
-	};
+			hamburger.classList.remove("active");
+			topBun.classList.remove("active");
+			bottomBun.classList.remove("active");
+			primarySidebar.classList.remove("active");
+		};
 
-	const closeSecondarySidebar = () => {
-		secondarySidebar.classList.remove("active");
-	};
+		const closeSecondarySidebar = () => {
+			secondarySidebar.classList.remove("active");
+		};
 
-	// for each sidebar url, if clicked on, uncheck the checkbox
-	sidebarURLs.forEach((url) => {
-		url.addEventListener("click", () => {
-			// closePrimarySidebar();
+		// for each sidebar url, if clicked on, uncheck the checkbox
+		sidebarURLs.forEach((url) => {
+			url.addEventListener("click", () => {
+				closePrimarySidebar();
+				checkbox.checked = false;
+			});
 		});
-	});
 
-	if (window.innerWidth < 768) {
-		hamburger.style.translate = "0 0";
-	}
-
-	// if clicked outside of the hamburger menu, close the sidebar
-	window.addEventListener("click", (e) => {
-		if (
-			e.target !== hamburger &&
-			e.target !== topBun &&
-			e.target !== bottomBun &&
-			e.target !== checkbox &&
-			e.target !== document.querySelector(".sidebar")
-		) {
-			// closePrimarySidebar();
-		}
-	});
-
-	// if window is resized, check if it's less than 768px
-	window.addEventListener("resize", () => {
 		if (window.innerWidth < 768) {
 			hamburger.style.translate = "0 0";
-		} else {
-			hamburger.style.translate = "0 -200px";
-			closePrimarySidebar();
 		}
-	});
 
-	// if checked, translate the sidebar
-	checkbox.addEventListener("change", () => {
-		if (checkbox.checked) {
-			openPrimarySidebar();
-		} else {
-			closePrimarySidebar();
-			closeSecondarySidebar();
-		}
+		// if clicked outside of the hamburger menu, close the sidebar
+		window.addEventListener("click", (e) => {
+			if (
+				e.target !== hamburger &&
+				e.target !== topBun &&
+				e.target !== bottomBun &&
+				e.target !== checkbox &&
+				e.target !== document.querySelector(".sidebar")
+			) {
+				// closePrimarySidebar();
+			}
+		});
+
+		// if window is resized, check if it's less than 768px
+		window.addEventListener("resize", () => {
+			if (window.innerWidth < 768) {
+				hamburger.style.translate = "0 0";
+			} else {
+				hamburger.style.translate = "0 -200px";
+				closePrimarySidebar();
+			}
+		});
+
+		// if checked, translate the sidebar
+		checkbox.addEventListener("change", () => {
+			if (checkbox.checked) {
+				openPrimarySidebar();
+			} else {
+				closePrimarySidebar();
+				closeSecondarySidebar();
+			}
+		});
+
+		document
+			.getElementById("projects-mobile")
+			.addEventListener("click", () => {
+				openSecondarySidebar();
+			});
+
+		document
+			.getElementById("projects-mobile")
+			.addEventListener("click", () => {
+				openSecondarySidebar();
+			});
+
+		document
+			.getElementById("mobile-projects-back")
+			.addEventListener("click", () => {
+				closeSecondarySidebar();
+			});
 	});
 </script>
