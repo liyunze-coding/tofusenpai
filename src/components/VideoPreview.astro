@@ -11,20 +11,16 @@ let { src, url, width, height } = Astro.props;
 src = `url("/thumbnails/${src}")`;
 ---
 
-<div
-	class="video-container mx-auto aspect-w-16 aspect-h-9 md:aspect-auto max-w-full"
-	tabindex="0"
->
+<div class="video-container mx-auto aspect-video max-w-full" tabindex="0">
 	<!-- Preview image -->
 	<!-- Play Button -->
 	<div class="play-button z-10">▶</div>
 
 	<!-- YouTube Video Embed (initially hidden) -->
 	<iframe
-		class="video-embed aspect-w-16 aspect-h-9 md:aspect-auto"
+		class="video-embed aspect-video"
 		id="video"
 		width={width}
-		height={height}
 		src={url}
 		title="Give Me Love (2024)"
 		frameborder="0"
@@ -50,11 +46,10 @@ src = `url("/thumbnails/${src}")`;
 	}
 </script>
 
-<style define:vars={{ src, width, height }}>
+<style define:vars={{ src, width }}>
 	.video-container {
 		position: relative;
 		width: var(--width);
-		height: var(--height);
 		background-image: var(--src);
 		background-size: cover;
 		background-position: center;
@@ -62,6 +57,7 @@ src = `url("/thumbnails/${src}")`;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		aspect-ratio: 16 / 9;
 	}
 
 	/* Red overlay text */

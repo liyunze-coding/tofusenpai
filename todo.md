@@ -3,10 +3,10 @@
 - [x] other projects -
 - [x] intersection observer
 - [x] projects dropdown
-- [ ] header hamburger
-- [ ] about
+- [x] header hamburger
+- [x] about
 - [x] animate in give me love
-- [ ] mobile project images srcset
+- [x] mobile project images srcset
 - [x] compress images
 - [ ] view transitions
 - [x] grimes

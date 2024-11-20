@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HomeCards from "../components/HomeCards.astro";
+import MobileViewCards from "../components/MobileViewCards.astro";
+---
+
+<Layout title="About William Yao" active="about"
+	><main
+		class="container m-auto py-5 px-4 w-[768px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6] font-['futura-pt',sans-serif]"
+	>
+		<div
+			class="flex flex-col justify-center items-start lg:flex-row gap-5 lg:gap-20"
+		>
+			<div class="w-full">
+				<img
+					src="/about/william.webp"
+					alt="William"
+					width="314"
+					class="lg:ml-auto mx-auto lg:mx-0"
+				/>
+			</div>
+			<div class="font-light w-full text-[16px] leading-[29px] pt-2">
+				<h1 class="font-bold text-[38px] mb-8">ABOUT</h1>
+				<p>
+					William is a New York-based filmmaker who enjoys Taika
+					Waititi on a Tuesday and cries over Wong Kar Wai on a
+					Sunday. His affinity for storytelling is rooted in honest
+					conversations, subtle yet powerful moments, and an
+					insatiable desire for laughter.
+				</p>
+				<br />
+				<p>
+					When he’s not directing or crumpling up scripts, William is
+					a dancer and a creative technologist. He co-founded
+					PAVILLIA, a creative agency, to produce immersive
+					experiences, including solutions for HBO, ADOBE, and CANNES
+					FILM FESTIVAL XR.
+				</p>
+				<br />
+				<p class="text-sm italic">
+					“he’s a little dramatic sometimes” - William’s Mother
+				</p>
+
+				<br />
+				<p>Contact</p>
+				<a href="mailto:hello@thewilliamyao.com" class=""
+					>hello@thewilliamyao.com</a
+				>
+			</div>
+		</div>
+	</main></Layout
+>

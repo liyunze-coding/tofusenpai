@@ -6,22 +6,33 @@ import MobileViewCards from "../components/MobileViewCards.astro";
 
 <Layout title=`WILLIAM "ZY" YAO` showLogo={false}>
 	<main
+		id="homepage"
 		class="container m-auto py-20 px-4 w-[1200px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
 	>
 		<a
 			href="/"
-			class="font-bold text-3xl tracking-[0.2em] font-['Inknut_Antiqua',serif] top-0 sticky z-[60]"
+			class="font-bold text-xl lg:text-3xl tracking-[0.2em] font-['Inknut_Antiqua',serif] top-1 sm:top-5 lg:top-1 sticky z-[60]"
 		>
-			WILLIAM "ZY" YAO
+			WILLIAM <br class="sm:hidden" /> "ZY" YAO
 		</a>
 		<div class="md:w-[800px] mx-auto mt-10 max-w-[99%]">
 			<p>
 				William is a multidisciplinary Director and Creative
 				Technologist who seeks for stories rooted in honest
 				conversation, evanescent moments of nature, and the search for
-				joy and love. His work includes Films, Off-Broadway, and large
-				scale Live Productions. William loves Wong Kar Wai but secretly
-				binges Taika Waititi when his colleagues aren’t around.
+				joy and love. His work includes <a
+					href="/give-me-love"
+					class="underline underline-offset-2 relative z-10">Films</a
+				>, <a
+					href="/daydreamers"
+					class="underline underline-offset-2 relative z-10"
+					>Off-Broadway</a
+				>, and large scale <a
+					href="/grimes"
+					class="underline underline-offset-2 relative z-10"
+					>Live Productions</a
+				>. William loves Wong Kar Wai but secretly binges Taika Waititi
+				when his colleagues aren’t around.
 			</p>
 			<br />
 			<p>

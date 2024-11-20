@@ -1,3 +1,16 @@
+---
+type Link = {
+	title: string;
+	url: string;
+};
+
+interface Props {
+	links: Link[];
+}
+
+const { links } = Astro.props;
+---
+
 <div class="z-[70] w-fit">
 	<label
 		class="hamburger-menu z-[100] right-10 top-10 fixed"
@@ -9,14 +22,15 @@
 		<input type="checkbox" aria-label="Toggle menu" />
 		<span class="bottom-bun"></span>
 	</label>
-	<aside class="sidebar flex z-[70]">
+	<aside id="primary-sidebar" class="sidebar flex z-[70]">
 		<nav
 			class="flex flex-col justify-center items-center w-full capitalize font-['futura-pt',sans-serif]"
 			role="navigation"
 		>
-			<a
-				class="sidebar-url text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300 flex flex-row justify-center items-center"
-				href="/"
+			<button
+				class="text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300 flex flex-row justify-center items-center"
+				aria-label="Projects"
+				onclick="openSecondarySidebar()"
 				>Projects <svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -25,16 +39,54 @@
 					stroke="currentColor"
 					class="size-6 mt-1"
 				>
+					<title>Arrow Icon</title>
 					<path
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
 				</svg>
-			</a>
+			</button>
 			<a
 				class="sidebar-url text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300"
 				href="/">About</a
 			>
+		</nav>
+	</aside>
+	<aside id="secondary-sidebar" class="sidebar">
+		<nav
+			class="flex flex-col justify-center items-center w-full capitalize font-['futura-pt',sans-serif] overflow-y-scroll"
+			role="navigation"
+		>
+			<button
+				class="text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300 flex flex-row justify-center items-center"
+				aria-label="Projects"
+				onclick="closeSecondarySidebar()"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="size-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M15.75 19.5 8.25 12l7.5-7.5"></path>
+				</svg>
+				Back
+			</button>
+
+			{
+				links.map((link) => (
+					<a
+						class="sidebar-url text-3xl px-5 py-2 mt-10 text-center rounded-md text-white hover:text-gray-600 hover:bg-gray-100 transition-colors duration-300"
+						href={link.url}
+					>
+						{link.title}
+					</a>
+				))
+			}
 		</nav>
 	</aside>
 </div>
@@ -122,85 +174,83 @@
 
 	.sidebar {
 		position: fixed;
-		transition: opacity var(--animation-timing);
-		transition-delay: 50ms;
-		display: none;
+		top: 0;
+		bottom: 0;
+		transition: all var(--animation-timing);
+		/* transition-delay: 50ms; */
+		/* display: none; */
+		/* opacity: 0; */
+		translate: 100% 0;
 		padding: 0.5rem 1rem;
 		padding-top: calc(
 			var(--hamburger-height) + var(--hamburger-margin) + 1rem
 		);
 		background-color: var(--foreground);
 		color: var(--background);
-		z-index: 61;
 		width: 100vw;
 		min-height: 100vh;
+		overflow-y: scroll;
 	}
 
-	.sidebar-url {
-		display: none;
-		transition: all 300ms ease;
-		opacity: 0;
-		translate: 0 200%;
+	#primary-sidebar {
+		z-index: 70;
 	}
 
-	/* @media (max-width: 767px) {
-		.hamburger-menu {
-			display: flex;
-		}
-	} */
+	#secondary-sidebar {
+		z-index: 71;
+	}
+
+	.sidebar.active {
+		/* display: flex; */
+		/* opacity: 100%; */
+		translate: 0 0;
+		position: fixed;
+	}
 </style>
 
 <script defer is:inline>
 	const sidebarURLs = document.querySelectorAll(".sidebar-url");
 	const hamburger = document.querySelector(".hamburger-menu");
 	const checkbox = document.querySelector("input");
-	const sidebar = document.querySelector(".sidebar");
+	const primarySidebar = document.querySelector("#primary-sidebar");
+	const secondarySidebar = document.querySelector("#secondary-sidebar");
 	const topBun = document.querySelector(".top-bun");
 	const bottomBun = document.querySelector(".bottom-bun");
 
-	const openSideBar = () => {
+	const openPrimarySidebar = () => {
+		document.body.classList.add("menu-open");
+
 		checkbox.checked = true;
 
-		sidebar.style.display = "flex";
+		primarySidebar.classList.add("active");
 		hamburger.classList.add("active");
 		topBun.classList.add("active");
 		bottomBun.classList.add("active");
-
-		sidebarURLs.forEach((url) => {
-			url.style.display = "flex";
-
-			setTimeout(() => {
-				url.style.opacity = "100%";
-				url.style.translate = "0 0";
-			}, 50);
-		});
 	};
 
-	const closeSideBar = () => {
+	const openSecondarySidebar = () => {
+		document.body.classList.add("menu-open");
+		secondarySidebar.classList.add("active");
+	};
+
+	const closePrimarySidebar = () => {
+		document.body.classList.remove("menu-open");
 		checkbox.checked = false;
 
 		hamburger.classList.remove("active");
 		topBun.classList.remove("active");
 		bottomBun.classList.remove("active");
+		primarySidebar.classList.remove("active");
+	};
 
-		sidebarURLs.forEach((url) => {
-			url.style.display = "none";
-
-			setTimeout(() => {
-				url.style.translate = "0 100%";
-				url.style.opacity = "0%";
-			}, 50);
-		});
-
-		setTimeout(() => {
-			sidebar.style.display = "none";
-		}, 50);
+	const closeSecondarySidebar = () => {
+		secondarySidebar.classList.remove("active");
 	};
 
 	// for each sidebar url, if clicked on, uncheck the checkbox
 	sidebarURLs.forEach((url) => {
 		url.addEventListener("click", () => {
-			closeSideBar();
+			// closePrimarySidebar();
 		});
 	});
 
@@ -215,10 +265,9 @@
 			e.target !== topBun &&
 			e.target !== bottomBun &&
 			e.target !== checkbox &&
-			e.target !== document.querySelector(".sidebar") &&
-			e.target !== document.querySelector(".sidebar nav")
+			e.target !== document.querySelector(".sidebar")
 		) {
-			closeSideBar();
+			// closePrimarySidebar();
 		}
 	});
 
@@ -228,16 +277,17 @@
 			hamburger.style.translate = "0 0";
 		} else {
 			hamburger.style.translate = "0 -200px";
-			closeSideBar();
+			closePrimarySidebar();
 		}
 	});
 
 	// if checked, translate the sidebar
 	checkbox.addEventListener("change", () => {
 		if (checkbox.checked) {
-			openSideBar();
+			openPrimarySidebar();
 		} else {
-			closeSideBar();
+			closePrimarySidebar();
+			closeSecondarySidebar();
 		}
 	});
 </script>

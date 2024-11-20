@@ -1,6 +1,6 @@
 ---
 interface Props {
-	src: any;
+	src: string;
 	alt: string;
 	eager?: boolean | null;
 	heading: string;
@@ -12,8 +12,6 @@ interface Props {
 	href?: string | null;
 }
 
-import { Image } from "astro:assets";
-
 const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 	Astro.props;
 ---
@@ -21,7 +19,7 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 <a href={href} class="project absolute" data-z-index={z}>
 	<div class="flex justify-center items-center w-[600px] lg:w-[900px]">
 		<div class="project-detail project-img left w-[500px]">
-			<Image
+			<img
 				src={src}
 				alt={alt}
 				width="500"

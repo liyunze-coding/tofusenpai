@@ -1,16 +1,4 @@
 ---
-// importing images
-import GiveMeLove from "./film-images/give-me-love.webp";
-import Daydreamers from "./film-images/daydreamers.webp";
-import Grimes from "./film-images/grimes-coachella.webp";
-import Rainbows from "./film-images/short-film-about-rainbows.webp";
-import Sharkbait from "./film-images/shark-bait.webp";
-import Twitchcon from "./film-images/samsung-twitchcon.webp";
-import Heavenmade from "./film-images/heavenmade.webp";
-import TellTheGirl from "./film-images/tell-the-girl.webp";
-import CreatorCulture from "./film-images/creator-culture.webp";
-import DoIKnowYou from "./film-images/do-i-know-you.webp";
-
 import { Image } from "astro:assets";
 
 // subcomponents
@@ -28,7 +16,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		client:load
 	>
 		<Image
-			src={GiveMeLove}
+			src="/film-images/small/give-me-love.webp"
 			alt="GIVE ME LOVE"
 			height={465}
 			width={648}
@@ -42,7 +30,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		client:load
 	>
 		<Image
-			src={Daydreamers}
+			src="/film-images/small/daydreamers.webp"
 			alt="Daydreamers"
 			height={465}
 			width={648}
@@ -56,7 +44,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		client:load
 	>
 		<Image
-			src={Grimes}
+			src="/film-images/small/grimes.webp"
 			alt="Grimes Coachella 2024"
 			height={465}
 			width={648}
@@ -71,7 +59,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		client:load
 	>
 		<Image
-			src={Rainbows}
+			src="/film-images/small/rainbows.webp"
 			alt="a short film about rainbows"
 			height={465}
 			width={648}
@@ -82,7 +70,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 
 	<ContainerScroll heading="SHARK BAIT" subheading="(SHORT FILM)" client:load>
 		<Image
-			src={Sharkbait}
+			src="/film-images/small/sharkbait.webp"
 			alt="Shark Bait"
 			height={465}
 			width={648}
