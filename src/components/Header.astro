@@ -67,13 +67,13 @@ const links: Link[] = [
 			</a>
 		)
 	}
-	<div class="flex justify-end items-center gap-10">
+	<div class="flex justify-end items-center gap-3 xl:gap-8">
 		<div class="flex flex-col items-end justify-end relative">
 			<a
 				transition:name="projects-link"
 				href="/projects"
 				onclick="return false"
-				class="peer hidden md:block px-5 py-2 text-white underline-offset-8"
+				class="peer hidden lg:block px-5 py-2 text-white underline-offset-8"
 				class:list={[{ underline: active === "projects" }]}>Projects</a
 			>
 			<div
@@ -99,9 +99,30 @@ const links: Link[] = [
 			transition:name="about-link"
 			id="about-anchor"
 			href="/about"
-			class="underline-offset-8 hidden md:block"
+			class="underline-offset-8 hidden lg:block"
 			class:list={[{ underline: active === "about" }]}>About</a
 		>
+		<a
+			class="hidden lg:block"
+			href="https://www.instagram.com/_tofusenpai/"
+			target="_blank"
+		>
+			<img src="/svg/instagram.svg" alt="instagram" width="20" />
+		</a>
+		<a
+			class="hidden lg:block"
+			href="https://vimeo.com/williamyao"
+			target="_blank"
+		>
+			<img src="/svg/vimeo.svg" alt="vimeo" width="20" />
+		</a>
+		<a
+			class="hidden lg:block"
+			href="https://open.spotify.com/artist/0f7QKwump6IWgRKvZW0qSU"
+			target="_blank"
+		>
+			<img src="/svg/spotify.svg" alt="spotify" width="20" />
+		</a>
 	</div>
 </div>
 

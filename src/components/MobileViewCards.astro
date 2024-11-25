@@ -11,6 +11,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 
 <div class="flex flex-col lg:hidden overflow-hidden">
 	<ContainerScroll
+		href="/give-me-love"
 		heading="Give Me Love"
 		subheading="(SHORT FILM)"
 		client:load
@@ -25,6 +26,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		/>
 	</ContainerScroll>
 	<ContainerScroll
+		href="/daydreamers"
 		heading="DAYDREAMERS"
 		subheading="(OFF-BROADWAY SHOW)"
 		client:load
@@ -39,6 +41,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		/>
 	</ContainerScroll>
 	<ContainerScroll
+		href="/grimes"
 		heading="GRIMES COACHELLA 2024"
 		subheading="(MULTIMEDIA LIVE SHOW)"
 		client:load
@@ -54,6 +57,7 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 	</ContainerScroll>
 
 	<ContainerScroll
+		href="/asfar"
 		heading="A SHORT FILM ABOUT RAINBOWS"
 		subheading="(ANIMATION)"
 		client:load
@@ -68,10 +72,88 @@ import { ContainerScroll } from "./ui/container-scroll-animation";
 		/>
 	</ContainerScroll>
 
-	<ContainerScroll heading="SHARK BAIT" subheading="(SHORT FILM)" client:load>
+	<ContainerScroll
+		href="/shark-bait"
+		heading="SHARK BAIT"
+		subheading="(SHORT FILM)"
+		client:load
+	>
 		<Image
 			src="/film-images/small/sharkbait.webp"
 			alt="Shark Bait"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-center"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		heading="SAMSUNG X TWITCH CON 2023"
+		subheading="(SHORT DOCUMENTARY)"
+		client:load
+	>
+		<Image
+			src="/film-images/small/twitchcon.webp"
+			alt="Samsung Twitchcon 2023"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-center"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		href="heavenmade"
+		heading="HEAVENMADE"
+		subheading="(MOVEMENT DIRECTION)"
+		client:load
+	>
+		<Image
+			src="/film-images/small/heavenmade.webp"
+			alt="Heavenmade"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-center"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		href="/tell-the-girl"
+		heading="TELL THE GIRL"
+		subheading="(MUSIC VIDEO)"
+		client:load
+	>
+		<Image
+			src="/film-images/small/tell-the-girl.webp"
+			alt="Tell The Girl"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-center"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		href="/creator-culture"
+		heading="CREATOR CULTURE"
+		subheading="(DOCUMENTARY)"
+		client:load
+	>
+		<Image
+			src="/film-images/small/creator-culture.webp"
+			alt="Creator Culture"
+			height={465}
+			width={648}
+			class="mx-auto rounded-2xl object-cover h-full object-center"
+			draggable={false}
+		/>
+	</ContainerScroll>
+	<ContainerScroll
+		heading="DO I KNOW YOU?"
+		subheading="(SHORT FILM)"
+		client:load
+	>
+		<Image
+			src="/film-images/small/do-i-know-you.webp"
+			alt="Do I Know You?"
 			height={465}
 			width={648}
 			class="mx-auto rounded-2xl object-cover h-full object-center"

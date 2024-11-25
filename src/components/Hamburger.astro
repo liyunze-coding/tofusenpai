@@ -22,7 +22,10 @@ const { links } = Astro.props;
 		<input type="checkbox" aria-label="Toggle menu" />
 		<span class="bottom-bun"></span>
 	</label>
-	<aside id="primary-sidebar" class="sidebar flex z-[70]">
+	<aside
+		id="primary-sidebar"
+		class="sidebar flex flex-col justify-between items-center z-[70]"
+	>
 		<nav
 			class="flex flex-col justify-center items-center w-full capitalize font-['futura-pt',sans-serif]"
 			role="navigation"
@@ -51,10 +54,17 @@ const { links } = Astro.props;
 				href="/about">About</a
 			>
 		</nav>
+		<div class="mb-5">
+			<div class="flex justify-center items-center gap-10 text-white">
+				<img src="/svg/instagram.svg" alt="instagram" width="25" />
+				<img src="/svg/vimeo.svg" alt="vimeo" width="25" />
+				<img src="/svg/spotify.svg" alt="spotify" width="25" />
+			</div>
+		</div>
 	</aside>
 	<aside id="secondary-sidebar" class="sidebar">
 		<nav
-			class="flex flex-col justify-center items-center w-full capitalize font-['futura-pt',sans-serif] overflow-y-scroll"
+			class="flex flex-col justify-center items-center w-full capitalize font-['futura-pt',sans-serif] overflow-y-scroll pb-40"
 			role="navigation"
 		>
 			<button
@@ -209,6 +219,7 @@ const { links } = Astro.props;
 </style>
 
 <script defer is:inline>
+	const viewportWidth = 1024;
 	document.addEventListener("astro:page-load", () => {
 		const sidebarURLs = document.querySelectorAll(".sidebar-url");
 		const hamburger = document.querySelector(".hamburger-menu");
@@ -256,7 +267,7 @@ const { links } = Astro.props;
 			});
 		});
 
-		if (window.innerWidth < 768) {
+		if (window.innerWidth < viewportWidth) {
 			hamburger.style.translate = "0 0";
 		}
 
@@ -273,9 +284,9 @@ const { links } = Astro.props;
 			}
 		});
 
-		// if window is resized, check if it's less than 768px
+		// if window is resized, check if it's less than viewportWidthpx
 		window.addEventListener("resize", () => {
-			if (window.innerWidth < 768) {
+			if (window.innerWidth < viewportWidth) {
 				hamburger.style.translate = "0 0";
 			} else {
 				hamburger.style.translate = "0 -200px";

@@ -3,10 +3,12 @@ import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
+	href,
 	heading,
 	subheading,
 	children,
 }: {
+	href?: string | null;
 	heading: string | React.ReactNode;
 	subheading: string;
 	children: React.ReactNode;
@@ -27,21 +29,41 @@ export const ContainerScroll = ({
 			className="pt-20 h-[35rem] flex items-center justify-center relative p-2 "
 			ref={containerRef}
 		>
-			<div
-				className="py-5 w-full relative"
-				style={{
-					perspective: "1000px",
-				}}
-			>
-				<Header
-					translate={translate}
-					heading={heading}
-					subheading={subheading}
-				/>
-				<Card rotate={rotate} translate={translate} scale={scale}>
-					{children}
-				</Card>
-			</div>
+			{href && (
+				<a
+					className="py-5 w-full relative block"
+					style={{
+						perspective: "1000px",
+					}}
+					href={href}
+				>
+					<Header
+						translate={translate}
+						heading={heading}
+						subheading={subheading}
+					/>
+					<Card rotate={rotate} translate={translate} scale={scale}>
+						{children}
+					</Card>
+				</a>
+			)}
+			{!href && (
+				<div
+					className="py-5 w-full relative block"
+					style={{
+						perspective: "1000px",
+					}}
+				>
+					<Header
+						translate={translate}
+						heading={heading}
+						subheading={subheading}
+					/>
+					<Card rotate={rotate} translate={translate} scale={scale}>
+						{children}
+					</Card>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -54,9 +76,9 @@ export const Header = ({ translate, heading, subheading }: any) => {
 			}}
 			className="div max-w-5xl mx-auto text-center"
 		>
-			<h1 className="text-4xl font-semibold text-black dark:text-white z-50">
+			<h1 className="text-3xl font-semibold text-black dark:text-white z-50">
 				{heading} <br />
-				<span className="text-4xl font-bold mt-1 leading-none">
+				<span className="text-xl font-bold mt-1 leading-none">
 					{subheading}
 				</span>
 			</h1>
