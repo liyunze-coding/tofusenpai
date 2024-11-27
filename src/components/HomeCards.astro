@@ -1,16 +1,4 @@
 ---
-// importing images
-// import Daydreamers from "./film-images/daydreamers.webp";
-// import Grimes from "./film-images/grimes-coachella.webp";
-// import GiveMeLove from "./film-images/give-me-love.webp";
-// import Rainbows from "./film-images/short-film-about-rainbows.webp";
-// import Sharkbait from "./film-images/shark-bait.webp";
-// import Twitchcon from "./film-images/samsung-twitchcon.webp";
-// import Heavenmade from "./film-images/heavenmade.webp";
-// import TellTheGirl from "./film-images/tell-the-girl.webp";
-// import CreatorCulture from "./film-images/creator-culture.webp";
-// import DoIKnowYou from "./film-images/do-i-know-you.webp";
-
 // subcomponents
 import LeftCard from "./SubComponents/LeftCard.astro";
 import RightCard from "./SubComponents/RightCard.astro";
@@ -55,23 +43,23 @@ import RightCard from "./SubComponents/RightCard.astro";
 		rotation="-6.15deg"
 	/>
 	<RightCard
+		href="/garden"
+		src="/film-images/garden.webp"
+		alt="Gratitude Garden"
+		heading="GRATITUDE GARDEN"
+		subheading="(AR EXPERIENCE)"
+		eager={false}
+		x="-10px"
+		y="720px"
+		z="13"
+		rotation="5deg"
+	/>
+	<LeftCard
 		href="/asfar"
 		src="/film-images/rainbows.webp"
 		alt="A short film about rainbows"
 		heading="A SHORT FILM ABOUT RAINBOWS"
 		subheading="(ANIMATION)"
-		eager={false}
-		x="-10px"
-		y="760px"
-		z="13"
-		rotation="5deg"
-	/>
-	<LeftCard
-		href="/shark-bait"
-		src="/film-images/sharkbait.webp"
-		alt="Shark Bait"
-		heading="SHARKBAIT"
-		subheading="(SHORT FILM)"
 		eager={false}
 		x="10px"
 		y="1000px"
@@ -79,10 +67,11 @@ import RightCard from "./SubComponents/RightCard.astro";
 		rotation="-5.15deg"
 	/>
 	<RightCard
-		src="/film-images/twitchcon.webp"
-		alt="Samsung x Twitch con 2023"
-		heading="SAMSUNG X TWITCH CON 2023"
-		subheading="(SHORT DOCUMENTARY)"
+		href="/shark-bait"
+		src="/film-images/sharkbait.webp"
+		alt="Shark Bait"
+		heading="SHARKBAIT"
+		subheading="(SHORT FILM)"
 		eager={false}
 		x="0px"
 		y="1250px"
@@ -90,6 +79,17 @@ import RightCard from "./SubComponents/RightCard.astro";
 		rotation="5deg"
 	/>
 	<LeftCard
+		src="/film-images/twitchcon.webp"
+		alt="Samsung x Twitch con 2023"
+		heading="SAMSUNG X TWITCH CON 2023"
+		subheading="(SHORT DOCUMENTARY)"
+		eager={false}
+		x="0px"
+		y="1480px"
+		z="10"
+		rotation="-3.15deg"
+	/>
+	<RightCard
 		href="/heavenmade"
 		src="/film-images/heavenmade.webp"
 		alt="Heavenmade"
@@ -97,11 +97,11 @@ import RightCard from "./SubComponents/RightCard.astro";
 		subheading="(MOVEMENT DIRECTION)"
 		eager={false}
 		x="0px"
-		y="1550px"
-		z="10"
-		rotation="-3.15deg"
+		y="1750px"
+		z="9"
+		rotation="5deg"
 	/>
-	<RightCard
+	<LeftCard
 		href="/tell-the-girl"
 		src="/film-images/tell-the-girl.webp"
 		alt="Tell the girl"
@@ -109,11 +109,11 @@ import RightCard from "./SubComponents/RightCard.astro";
 		subheading="(MUSIC VIDEO)"
 		eager={false}
 		x="0px"
-		y="1800px"
-		z="9"
-		rotation="5deg"
+		y="2000px"
+		z="8"
+		rotation="-5.15deg"
 	/>
-	<LeftCard
+	<RightCard
 		href="/creator-culture"
 		src="/film-images/creator-culture.webp"
 		alt="Creator Culture"
@@ -121,20 +121,20 @@ import RightCard from "./SubComponents/RightCard.astro";
 		subheading="(DOCUMENTARY)"
 		eager={false}
 		x="0px"
-		y="2050px"
-		z="8"
-		rotation="-5.15deg"
+		y="2250px"
+		z="7"
+		rotation="2deg"
 	/>
-	<RightCard
+	<LeftCard
 		src="/film-images/do-i-know-you.webp"
 		alt="Do I Know You"
 		heading="DO I KNOW YOU?"
 		subheading="(SHORT FILM)"
 		eager={false}
 		x="0px"
-		y="2300px"
-		z="7"
-		rotation="2deg"
+		y="2500px"
+		z="6"
+		rotation="-5.15deg"
 	/>
 
 	<div class="background-blur"></div>
@@ -143,7 +143,7 @@ import RightCard from "./SubComponents/RightCard.astro";
 <style is:global lang="scss">
 	:root {
 		--cards-margin-top: 5rem; /* adjust the margin top  */
-		--cards-height: 2600px; /* adjust the cards component total height*/
+		--cards-height: 2900px; /* adjust the cards component total height*/
 	}
 
 	#home-cards {

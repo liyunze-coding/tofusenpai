@@ -184,8 +184,7 @@ const { links } = Astro.props;
 
 	.sidebar {
 		position: fixed;
-		top: 0;
-		bottom: 0;
+		inset: 0;
 		transition: all var(--animation-timing);
 		/* transition-delay: 50ms; */
 		/* display: none; */
@@ -197,7 +196,7 @@ const { links } = Astro.props;
 		);
 		background-color: var(--foreground);
 		color: var(--background);
-		width: 100vw;
+		width: 100%;
 		min-height: 100vh;
 		overflow-y: scroll;
 	}

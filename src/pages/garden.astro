@@ -1,0 +1,389 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="A SHORT FILM ABOUT RAINBOWS" active="projects" background="#000">
+	<main
+		class="container font-['futura-pt',sans-serif] m-auto pt-5 pb-10 px-4 w-[1440px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
+	>
+		<!-- First Section -->
+		<div class="flex flex-col justify-center items-center lg:mt-5">
+			<div class="lg:mt-36">
+				<h1 class="font-medium text-[71px] text-center">
+					Gratitude gARden
+				</h1>
+			</div>
+			<div class="">
+				<img src="/garden/logo.webp" alt="garden logo" width="60" />
+			</div>
+			<div class="italic text-[25px] font-light leading-[45px] mt-36">
+				“We should try by all means to be as grateful as possible. For
+				gratitude is a good thing for ourselves, in a sense in which
+				justice, that is commonly supposed to concern other persons, is
+				not; gratitude returns in large measure unto itself.” - Seneca,
+				Roman Philosopher, 65 AD.
+			</div>
+		</div>
+
+		<!-- divider between 1st and 2nd section -->
+		<div class="flex flex-col justify-center items-center mt-5">
+			<div class="fadeIn dot"></div>
+			<div class="fadeIn dot"></div>
+			<div class="fadeIn dot"></div>
+		</div>
+
+		<!-- 2nd section -->
+		<div
+			class="flex flex-col lg:flex-row lg:justify-between items-center lg:mt-48"
+		>
+			<!-- left side -->
+			<div class="w-full lg:w-[55%]">
+				<h2 class="font-bold text-[25px] fadeIn">What is it?</h2>
+				<p class="text-[25px] leading-[45px] font-light fadeIn">
+					Amidst the backdrop of an age of anxiety and worry culture,
+					the gARden is an AR art installation of a communal virtual
+					garden that transforms the intangible feeling of connecting
+					with oneself and others into a 3D experience whereby people
+					from all walks of life can plant their introspection in the
+					form of a flower in a visually stimulating garden that other
+					people can interact with. We wanted to create an experience
+					that encourages people to be introspective, thoughtful, and
+					emotionally connected in AR, allowing people to explore
+					perspectives while also being in tune with themselves.
+				</p>
+			</div>
+			<div class="text-right">
+				<div class="mt-5">
+					<img
+						src="/garden/section-2/garden-app.webp"
+						alt="User Experience Mock Up"
+						width="572"
+						class="fadeIn"
+					/>
+				</div>
+				<div class="mt-4 text-[16px]">User Experience Mock Up</div>
+			</div>
+		</div>
+
+		<!-- 3rd section + margin -->
+		<div class="mt-48">
+			<!-- 3 videos -->
+			<div
+				class="flex justify-center items-center flex-col lg:flex-row h-fit min-h-[523px] gap-10"
+			>
+				<div>
+					<video
+						src="/garden/section-3/garden-1.webm"
+						width="200"
+						class="h-[523px] w-auto fadeIn"
+						autoplay
+						muted></video>
+				</div>
+				<div>
+					<video
+						src="/garden/section-3/garden-2.webm"
+						width="200"
+						class="h-[523px] w-auto fadeIn"
+						autoplay
+						muted></video>
+				</div>
+				<div>
+					<video
+						src="/garden/section-3/garden-3.webm"
+						width="200"
+						class="h-[523px] w-auto fadeIn"
+						autoplay
+						muted></video>
+				</div>
+			</div>
+		</div>
+
+		<!-- 4th section -->
+		<div class="mt-40">
+			<div
+				class="flex flex-col lg:flex-row justify-center lg:justify-between lg:items-start items-center"
+			>
+				<div
+					class="w-1/2 relative h-fit min-h-[450px] mt-8 flex flex-col justify-center items-center"
+				>
+					<img
+						src="/garden/section-4/screenshot-1.webp"
+						alt="screenshot 1"
+						width="340"
+						class="fadeIn static lg:top-0 lg:left-0 lg:absolute"
+					/>
+					<div
+						class="fadeIn static lg:absolute lg:bottom-0 lg:left-0 font-light text-[16px]"
+					>
+						Inspiration
+					</div>
+					<img
+						src="/garden/section-4/screenshot-2.webp"
+						alt="screenshot 2"
+						width="340"
+						class="fadeIn static lg:top-20 lg:left-24 lg:absolute"
+					/>
+					<img
+						src="/garden/section-4/screenshot-3.webp"
+						alt="screenshot 3"
+						width="340"
+						class="fadeIn static lg:top-32 lg:left-48 lg:absolute"
+					/>
+					<img
+						src="/garden/section-4/screenshot-4.webp"
+						alt="screenshot 4"
+						width="340"
+						class="fadeIn static lg:bottom-0 lg:left-72 lg:absolute"
+					/>
+				</div>
+
+				<div class="w-full lg:w-1/2 mt-10 lg:mt-0">
+					<h2 class="fadeIn text-[25px] font-bold mb-4">
+						Why is this important?
+					</h2>
+					<p class="fadeIn text-[25px] leading-[45px] font-light">
+						Until recently, the traditional “mental disease model”
+						of psychology focused on how one can relieve suffering
+						rather than how one can amplify well-being.
+						Reverse-engineering the science of happiness, modern
+						models utilize simple methods, such as revisiting a
+						pleasant memory or expressing our gratitude towards
+						others, as a way to nudge our mentality towards a
+						healthier well-being. The gARden, thus, is a project
+						that aims to provide a safe space for people from all
+						walks of life to have a meaningful moment reserved for
+						eliciting introspection.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- 5th section Why AR? -->
+		<div class="mt-40">
+			<div
+				class="flex flex-col lg:flex-row justify-center items-start gap-20"
+			>
+				<div
+					class="w-full lg:w-[340px] flex-shrink-0 pt-5 flex flex-col justify-center items-center"
+				>
+					<img
+						src="/garden/section-5/tulip.webp"
+						alt="Tulip"
+						width="340"
+						class="fadeIn"
+					/>
+					<div class="fadeIn font-light text-[16px] mt-5">
+						Blender 3D Mock Up: Tulip
+					</div>
+				</div>
+				<div class="flex-grow">
+					<h2 class="fadeIn font-bold text-[25px]">Why AR?</h2>
+					<p class="fadeIn text-[25px] leading-[45px] font-light">
+						With the help of AR, we are able to provide a communal
+						aspect to introspection, whereby individuals are
+						physically in a space where they see introspection from
+						diverse people at different points of time. We are at
+						the forefront of technology where we can build new
+						worlds of connection and redefine the way people engage
+						with one another. We want gARden to be a space where
+						people can interact and connect in ways that aren’t
+						possible offline.
+					</p>
+				</div>
+				<div
+					class="w-full lg:w-[340px] flex-shrink-0 pt-5 flex flex-col justify-center items-center"
+				>
+					<img
+						src="/garden/section-5/daffolio.webp"
+						alt="daffolio"
+						width="340"
+						class="fadeIn"
+					/>
+					<div class="fadeIn font-light text-[16px] mt-5">
+						Blender 3D Mock Up: Daffolio
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 6th section -->
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mt-56">
+			<div>
+				<h2 class="text-[25px] font-bold mb-5 leading-[45px]">
+					Awareness & Empathy
+				</h2>
+				<p class="text-[25px] font-light leading-[45px]">
+					Introspection rewires the brain by kick starting production
+					of dopamine and serotonin levels from the brain stem. This
+					drives pro-social behaviors and improves awareness & empathy
+					in the self and others.
+				</p>
+			</div>
+			<div>
+				<h2 class="text-[25px] font-bold mb-5 leading-[45px]">
+					Cognitive/Behavioral Benefits
+				</h2>
+				<p class="text-[25px] font-light leading-[45px]">
+					Introspection rewires the brain by kick starting production
+					of dopamine and serotonin levels from the brain stem. This
+					drives pro-social behaviors and improves awareness & empathy
+					in the self and others.
+				</p>
+			</div>
+			<div>
+				<h2 class="text-[25px] font-bold mb-5 leading-[45px]">
+					Happiness
+				</h2>
+				<p class="text-[25px] font-light leading-[45px]">
+					Internal self-awareness is directly correlated with higher
+					emotional intelligence and happiness.
+				</p>
+			</div>
+			<div>
+				<h2 class="text-[25px] font-bold mb-5 leading-[45px]">
+					Individual Reward/Motivation
+				</h2>
+				<p class="text-[25px] font-light leading-[45px]">
+					Introspective thoughts activate reward centers in the brain
+					(nucleus accumbens and ventral tegmental area) that elicit
+					rewarding feelings similar to eating good food and listening
+					to your favorite music.
+				</p>
+			</div>
+		</div>
+
+		<div
+			class="mt-56 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 place-items-center"
+		>
+			<div class="md:col-span-2">
+				<h2 class="font-bold text-[25px] mb-3">
+					The Gratitude Journey
+				</h2>
+				<ol
+					id="app-steps"
+					class="font-light text-[16px] leading-[29px] list-decimal list-outside pl-12"
+				>
+					<li class="fadeIn">
+						John opens the app, sees intro (welcome, mental health
+						info).
+					</li>
+					<li class="fadeIn">
+						John is given 3 prompts and types his answers.
+					</li>
+					<li class="fadeIn">
+						App generates customized flower & John is given a
+						flower.
+					</li>
+					<li class="fadeIn">
+						John plants it at x, y coordinates, which activates one
+						section of the pre-programmed garden to show.
+					</li>
+					<li class="fadeIn">
+						John can only plant maximum 3 flowers within an hour.
+					</li>
+					<li class="fadeIn">
+						John can walk around the garden to view other flowers
+						planted by other users.
+					</li>
+					<li class="fadeIn">
+						John clicks on Sarah’s flower and sees a pop up of her
+						gratitude.
+					</li>
+					<li class="fadeIn">
+						John resonates with Sarah’s flower and decides to water
+						it.
+					</li>
+					<li class="fadeIn">
+						After John waters it, he gets a reward of a butterfly
+						coming to him to deliver mental health information.
+					</li>
+					<li class="fadeIn">
+						After John water it, Sarah gets a notification on her
+						phone that someone watered her gratitude flower.
+					</li>
+				</ol>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-1.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-2.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-3.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-4.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-5.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+			<div>
+				<img
+					src="/garden/section-6/app-6.webp"
+					alt="prompts"
+					width="262"
+					height="568"
+					class="fadeIn"
+				/>
+			</div>
+		</div>
+		<div class="mt-40 py-20 flex justify-center items-center">
+			<img
+				src="/garden/section-7/credits.webp"
+				alt="credits"
+				width="963"
+				class="fadeIn"
+			/>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--dot-size: 5px;
+		--dot-margin: 12px;
+	}
+
+	.dot {
+		width: var(--dot-size); /* Adjust the size as needed */
+		height: var(--dot-size); /* Adjust the size as needed */
+		background-color: white; /* Adjust the color as needed */
+		border-radius: 50%;
+		margin: var(--dot-margin); /* Adjust the spacing as needed */
+	}
+
+	#app-steps > li {
+		margin-bottom: 9px;
+	}
+</style>
