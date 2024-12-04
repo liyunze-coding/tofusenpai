@@ -3,21 +3,23 @@ import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 interface Props {
 	title: string;
+	description?: string;
 	showLogo?: boolean;
 	active?: string | null;
 	background?: string | null;
 }
 
-let { title, showLogo, active, background } = Astro.props;
+let { title, description, showLogo, active, background } = Astro.props;
 showLogo = showLogo ?? true;
 background = background ?? "#13151a";
+description = description ?? "";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
