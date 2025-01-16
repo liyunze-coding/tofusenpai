@@ -7,9 +7,11 @@ interface Props {
 	showLogo?: boolean;
 	active?: string | null;
 	background?: string | null;
+	thumbnail?: string | null;
 }
 
-let { title, description, showLogo, active, background } = Astro.props;
+let { title, description, showLogo, active, background, thumbnail } =
+	Astro.props;
 showLogo = showLogo ?? true;
 background = background ?? "#000";
 description = description ?? "";
@@ -23,6 +25,14 @@ description = description ?? "";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+		{
+			thumbnail && (
+				<>
+					<meta name="twitter:image" content={thumbnail} />
+					<meta name="og:image" content={thumbnail} />
+				</>
+			)
+		}
 		<title>{title}</title>
 	</head>
 	<body>
