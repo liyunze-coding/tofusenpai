@@ -3,10 +3,9 @@ interface Props {
 	src: string;
 	url: string;
 	width: string;
-	height: string;
 }
 
-let { src, url, width, height } = Astro.props;
+let { src, url, width } = Astro.props;
 
 src = `url("/thumbnails/${src}")`;
 ---
@@ -23,7 +22,6 @@ src = `url("/thumbnails/${src}")`;
 		width={width}
 		src={url}
 		title="Give Me Love (2024)"
-		frameborder="0"
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 		referrerpolicy="strict-origin-when-cross-origin"
 		allowfullscreen></iframe>
