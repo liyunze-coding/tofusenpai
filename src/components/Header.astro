@@ -67,7 +67,7 @@ const links: Link[] = [
 			<a
 				transition:name="header-logo"
 				href="/"
-				class="font-bold text-lg md:text-xl lg:text-3xl tracking-[0.2em] font-['Inknut_Antiqua',serif] md:text-nowrap z-50
+				class="font-bold text-lg md:text-xl lg:text-3xl tracking-[0.2em] font-['futura-pt',serif] md:text-nowrap z-50
 				left-5 md:left-1/2 md:-translate-x-1/2 absolute w-[70%] md:w-fit
 				-translate-x-0"
 			>
@@ -93,7 +93,7 @@ const links: Link[] = [
 				{
 					links.map((link) => (
 						<a
-							class="project-link px-5 py-2 text-right text-nowrap relative"
+							class="project-link px-5 py-1 text-right text-nowrap relative"
 							href={link.url}
 						>
 							{link.title}
@@ -111,6 +111,11 @@ const links: Link[] = [
 			class:list={[{ underline: active === "about" }]}>About</a
 		>
 		<a
+			transition:name="resume-link"
+			href="/WilliamYao_Resume.pdf"
+			class="underline-offset-8 hidden lg:block mr-4">Resume</a
+		>
+		<a
 			class="hidden lg:block"
 			href="https://www.instagram.com/_tofusenpai/"
 			target="_blank"
@@ -124,19 +129,19 @@ const links: Link[] = [
 		>
 			<img src="/svg/vimeo.svg" alt="vimeo" width="20" />
 		</a>
-		<a
+		<!-- <a
 			class="hidden lg:block"
 			href="https://open.spotify.com/artist/0f7QKwump6IWgRKvZW0qSU"
 			target="_blank"
 		>
 			<img src="/svg/spotify.svg" alt="spotify" width="20" />
-		</a>
+		</a> -->
 	</div>
 </div>
 
 <style>
 	.project-link {
-		background-color: #13151a;
+		background-color: #000;
 		transition-property: color, background-color, border-color,
 			text-decoration-color, fill, stroke;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
