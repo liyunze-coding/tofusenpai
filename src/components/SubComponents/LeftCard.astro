@@ -18,7 +18,7 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 ---
 
 <a href={href} class="project absolute" data-z-index={z}>
-	<div class="flex justify-center items-center w-[600px] lg:w-full">
+	<div class="flex justify-center items-center w-[600px] lg:w-full gap-10">
 		<div class="project-detail project-img left w-[700px]">
 			<img
 				src={src}
@@ -30,11 +30,12 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 		</div>
 		<div class="project-detail text-box pl-8 w-[400px]">
 			<div
-				class="w-fit bg-black bg-opacity-50 px-2 py-2 rounded-md text-3xl"
+				class="px-2 py-2 rounded-md flex flex-col justify-center items-center"
 			>
-				{heading}
-				<br /><br />
-				<span class="text-xl">{subheading}</span>
+				<div class="w-fit heading text-5xl mb-6 text-nowrap">
+					{heading}
+				</div>
+				<div class="text-xl fit-me text-nowrap w-fit">{subheading}</div>
 			</div>
 		</div>
 	</div>

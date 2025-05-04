@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 interface Props {
 	title: string;
@@ -41,7 +41,7 @@ description = description ?? "";
 	<body>
 		<Header showLogo={showLogo} active={active} />
 		<slot />
-		<ViewTransitions />
+		<ClientRouter />
 	</body>
 </html>
 <style is:global define:vars={{ background }}>
@@ -172,6 +172,20 @@ description = description ?? "";
 		});
 
 		hiddenElements.forEach((el) => observer.observe(el));
+
+		const headingTexts = document.querySelectorAll(".heading")
+		headingTexts.forEach((element) => {
+			fontSizeNoWrap(element);
+
+			// Reapply on window resize
+			window.addEventListener("resize", () => fontSizeNoWrap(element));
+		});
+
+		const subheadingElements = document.querySelectorAll(".fit-me");
+		subheadingElements.forEach((element) => {
+			scaleFontToSibling(element);
+			window.addEventListener("resize", () => scaleFontToSibling(element));
+		});
 	});
 
 	const warningStyle = "color:red; font-size: 3rem;";
@@ -182,4 +196,32 @@ description = description ?? "";
 		"%cThank you for your attention.\nDeveloped by RythonDev: https://rython.dev/",
 		descriptionStyle
 	);
+
+	// scale font smaller to fit sibling element (homepage cards)
+	function scaleFontToSibling(el) {
+		let fontSize = 100;
+		el.style.fontSize = fontSize + "px";
+		
+		let siblingElement = el.parentElement.querySelector(".heading");
+
+		while (el.clientWidth > siblingElement.clientWidth && fontSize > 5) {
+			fontSize--;
+			el.style.fontSize = fontSize + "px";
+		}
+	}
+
+	
+
+	// scale font to eliminate text wrapping
+	function fontSizeNoWrap(el, minFontSize = 10) {
+		let fontSize = 50;
+		el.style.fontSize = fontSize + "px";
+		
+		let siblingElement = el.parentElement;
+
+		while (el.clientWidth > siblingElement.clientWidth && fontSize > minFontSize) {
+			fontSize--;
+			el.style.fontSize = fontSize + "px";
+		}
+	}
 </script>
