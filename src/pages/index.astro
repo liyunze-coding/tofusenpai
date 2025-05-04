@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HomeCards from "../components/HomeCards.astro";
 import MobileViewCards from "../components/MobileViewCards.astro";
+import { Image } from "astro:assets";
+import WilliamYao from "./_images/williamyao.webp"
 ---
 
 <Layout
@@ -16,35 +18,41 @@ import MobileViewCards from "../components/MobileViewCards.astro";
 		<a
 			transition:name="header-logo"
 			href="/"
-			class="font-bold text-xl lg:text-3xl tracking-[0.2em] font-['futura-pt',serif] top-1 sm:top-5 lg:top-1 sticky z-40"
+			class="font-bold text-xl lg:text-3xl tracking-[0.2em] font-['futura-pt',serif] top-1 sm:top-5 lg:top-6 sticky z-40"
 		>
 			WILLIAM <br class="sm:hidden" /> "ZY" YAO
 		</a>
-		<div class="md:w-[800px] mx-auto mt-10 max-w-[99%]">
-			<p>
-				William is a multidisciplinary Director and Creative
-				Technologist who seeks for stories rooted in honest
-				conversation, evanescent moments of nature, and the search for
-				joy and love. His work includes <a
-					href="/give-me-love"
-					class="underline underline-offset-2 relative z-10">Films</a
-				>, <a
-					href="/daydreamers"
-					class="underline underline-offset-2 relative z-10"
-					>Off-Broadway</a
-				>, and large scale <a
-					href="/grimes"
-					class="underline underline-offset-2 relative z-10"
-					>Live Productions</a
-				>. William loves Wong Kar Wai but secretly binges Taika Waititi
-				when his colleagues aren’t around.
-			</p>
-			<br />
-			<p>
-				When he’s not crumpling up scripts or fighting AI overlords,
-				William is a dancer and a musician, with credits including
-				MARVEL, SAMSUNG, and CANNES FILM FESTIVAL XR.
-			</p>
+		<div class="flex flex-col lg:flex-row justify-center items-center lg:gap-5">
+			<div class="md:w-[800px] mx-auto mt-10 max-w-full mb-10">
+				<p>
+					William is a multidisciplinary Director and Creative
+					Technologist who seeks for stories rooted in honest
+					conversation, evanescent moments of nature, and the search
+					for joy and love. His work includes <a
+						href="/give-me-love"
+						class="underline underline-offset-2 relative z-10"
+						>Films</a
+					>, <a
+						href="/daydreamers"
+						class="underline underline-offset-2 relative z-10"
+						>Off-Broadway</a
+					>, and large scale <a
+						href="/grimes"
+						class="underline underline-offset-2 relative z-10"
+						>Live Productions</a
+					>. William loves Wong Kar Wai but secretly binges Taika
+					Waititi when his colleagues aren’t around.
+				</p>
+				<br />
+				<p>
+					When he’s not crumpling up scripts or fighting AI overlords,
+					William is a dancer and a musician, with credits including
+					MARVEL, SAMSUNG, and CANNES FILM FESTIVAL XR.
+				</p>
+			</div>
+			<div>
+				<Image src={WilliamYao} alt="WilliamYao" width={300} class="mr-10" />
+			</div>
 		</div>
 		<MobileViewCards />
 		<HomeCards />

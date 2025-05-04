@@ -18,12 +18,12 @@ const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
 ---
 
 <a href={href} class="project absolute" data-z-index={z}>
-	<div class="flex justify-center items-center w-[600px] lg:w-[900px]">
-		<div class="project-detail project-img left w-[500px]">
+	<div class="flex justify-center items-center w-[600px] lg:w-full">
+		<div class="project-detail project-img left w-[700px]">
 			<img
 				src={src}
 				alt={alt}
-				width="500"
+				width="700"
 				class="rounded-lg fadeIn scaleIn"
 				loading={eager ? "eager" : "lazy"}
 			/>
