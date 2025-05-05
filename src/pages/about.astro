@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomeCards from "../components/HomeCards.astro";
-import MobileViewCards from "../components/MobileViewCards.astro";
 ---
 
 <Layout
@@ -12,7 +10,7 @@ import MobileViewCards from "../components/MobileViewCards.astro";
 		class="container m-auto py-5 px-4 w-[1280px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6] font-['futura-pt',sans-serif]"
 	>
 		<div
-			class="flex flex-col justify-start items-start lg:flex-row gap-5 lg:gap-20"
+			class="flex flex-col items-center justify-start lg:items-start lg:flex-row gap-5 lg:gap-20 lg:mt-10"
 		>
 			<!-- Left Div (image) -->
 			<div class="w-[400px]">
@@ -21,13 +19,12 @@ import MobileViewCards from "../components/MobileViewCards.astro";
 					alt="William"
 					width="314"
 					height="392"
-					class="lg:ml-auto mx-auto lg:mx-0"
+					class="lg:ml-auto mx-auto lg:mx-0 mt-1"
 				/>
 			</div>
 			<!-- Right Div (Text content) -->
-			<div class="font-light w-full text-[16px] leading-[29px] pt-2">
-				<h1 class="font-bold text-[38px] mb-8">ABOUT</h1>
-				<p>
+			<div class="font-light w-full text-[20px] leading-[29px]">
+				<p class="pt-0">
 					William Yao is a <b>creative technologist</b> and award-winning
 					<b>filmmaker</b> whose passion lies in using art and technology
 					to foster <b>human connection</b>. With a dual degree in
@@ -75,5 +72,5 @@ import MobileViewCards from "../components/MobileViewCards.astro";
 				>
 			</div>
 		</div>
-	</main></Layout
->
+	</main>
+</Layout>
