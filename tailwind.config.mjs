@@ -7,6 +7,9 @@ export default {
 				secondary: "#000",
 				tertiary: "#101010",
 			},
+			screens: {
+                xs: "480px", // Define the xs screen width
+            },
 		},
 	},
 	plugins: [],

@@ -10,15 +10,30 @@ interface Props {
 	z: string;
 	rotation: string;
 	href?: string | null;
+	target?: string | null;
 }
 
-import { Image } from "astro:assets";
-
-const { src, alt, eager, heading, subheading, x, y, z, rotation, href } =
-	Astro.props;
+const {
+	src,
+	alt,
+	eager,
+	heading,
+	subheading,
+	x,
+	y,
+	z,
+	rotation,
+	href,
+	target,
+} = Astro.props;
 ---
 
-<a href={href} class="project absolute" data-z-index={z}>
+<a
+	href={href}
+	target={target ?? "_self"}
+	class="project absolute"
+	data-z-index={z}
+>
 	<div class="flex justify-center items-center w-[600px] lg:w-full gap-10">
 		<div class="project-detail text-box pl-8 w-[400px]">
 			<div
