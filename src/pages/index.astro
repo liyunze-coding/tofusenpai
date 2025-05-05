@@ -16,9 +16,10 @@ import WilliamYao from "./_images/williamyao copy.webp";
 		class="container m-auto py-20 px-4 w-[1200px] max-w-[calc(100%-2rem)] text-white text-[20px] leading-[1.6]"
 	>
 		<a
+			id="header-logo"
 			transition:name="header-logo"
 			href="/"
-			class="font-bold text-2xl xs:text-3xl md:text-[3rem] tracking-normal font-['futura-pt',serif] top-4 xs:top-8 md:top-3 sticky z-[49]"
+			class="font-bold text-2xl xs:text-3xl md:text-[3rem] tracking-normal font-['futura-pt',serif] pt-4 xs:pt-8 md:pt-3 sticky"
 		>
 			WILLIAM <br class="xs:hidden" /> "ZY" YAO
 		</a>
@@ -79,4 +80,24 @@ import WilliamYao from "./_images/williamyao copy.webp";
 		text-align: center;
 		margin-bottom: 1em;
 	}
+
+	#header-logo {
+		z-index: 49;
+		top: -1px;
+	}
+
+	#header-logo.isSticky {
+		z-index: 60;
+	}
 </style>
+
+<script is:inline>
+	const stickyElm = document.querySelector("#header-logo");
+
+	const observer = new IntersectionObserver(
+		([e]) => e.target.classList.toggle("isSticky", e.intersectionRatio < 1),
+		{ threshold: [1] }
+	);
+
+	observer.observe(stickyElm);
+</script>
