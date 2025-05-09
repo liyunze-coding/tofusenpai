@@ -33,15 +33,14 @@ import WilliamYao from "./_images/williamyao copy.webp";
 					conversation, evanescent moments of nature, and the search
 					for joy and love. His work includes <a
 						href="/give-me-love"
-						class="underline underline-offset-2 relative z-10"
-						>Films</a
+						class="intro-link underline-offset-2 relative">Films</a
 					>, <a
 						href="/daydreamers"
-						class="underline underline-offset-2 relative z-10"
+						class="intro-link underline-offset-2 relative"
 						>Off-Broadway</a
 					>, and large scale <a
 						href="/grimes"
-						class="underline underline-offset-2 relative z-10"
+						class="intro-link underline-offset-2 relative"
 						>Live Productions</a
 					>. William loves Wong Kar Wai but secretly binges Taika
 					Waititi when his colleagues aren’t around.
@@ -102,5 +101,11 @@ import WilliamYao from "./_images/williamyao copy.webp";
 		);
 
 		observer.observe(stickyElm);
+
+		const introLinks = document.querySelectorAll(".intro-link");
+		introLinks.forEach((introLink) => {
+			introLink.style.zIndex = 10;
+			introLink.style.textDecorationLine = "underline";
+		});
 	});
 </script>
