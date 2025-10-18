@@ -1,8 +1,8 @@
 ---
 import Hamburger from "./Hamburger.astro";
 interface Props {
-	showLogo: boolean;
-	active?: string | null;
+  showLogo: boolean;
+  active?: string | null;
 }
 
 let { showLogo, active } = Astro.props;
@@ -10,140 +10,139 @@ showLogo = showLogo ?? true;
 active = active ?? "";
 
 type Link = {
-	title: string;
-	url: string;
+  title: string;
+  url: string;
 };
 
 const links: Link[] = [
-	{
-		title: "GIVE ME LOVE (Short Film)",
-		url: "/give-me-love",
-	},
-	{
-		title: "DAYDREAMERS (Off-Broadway)",
-		url: "/daydreamers",
-	},
-	{
-		title: "GRIMES COACHELLA 2024 (Multimedia Live Show)",
-		url: "/grimes",
-	},
-	{
-		title: "A SHORT FILM ABOUT RAINBOWS (Animation)",
-		url: "/asfar",
-	},
-	{
-		title: "GRATITUDE GARDEN (AR Experience)",
-		url: "/garden",
-	},
-	{
-		title: "SHARK BAIT (Short Film)",
-		url: "/shark-bait",
-	},
-	{
-		title: "TELL THE GIRL (Music Video)",
-		url: "/tell-the-girl",
-	},
-	{
-		title: "HEAVENMADE (Movement Direction)",
-		url: "/heavenmade",
-	},
-	{
-		title: "CREATOR CULTURE (Documentary)",
-		url: "/creator-culture",
-	},
+  {
+    title: "GIVE ME LOVE (Short Film)",
+    url: "/give-me-love",
+  },
+  {
+    title: "DAYDREAMERS (Off-Broadway)",
+    url: "/daydreamers",
+  },
+  {
+    title: "GRIMES COACHELLA 2024 (Multimedia Live Show)",
+    url: "/grimes",
+  },
+  {
+    title: "A SHORT FILM ABOUT RAINBOWS (Animation)",
+    url: "/asfar",
+  },
+  {
+    title: "GRATITUDE GARDEN (AR Experience)",
+    url: "/garden",
+  },
+  {
+    title: "SHARK BAIT (Short Film)",
+    url: "/shark-bait",
+  },
+  {
+    title: "TELL THE GIRL (Music Video)",
+    url: "/tell-the-girl",
+  },
+  {
+    title: "HEAVENMADE (Movement Direction)",
+    url: "/heavenmade",
+  },
+  {
+    title: "CREATOR CULTURE (Documentary)",
+    url: "/creator-culture",
+  },
 ];
 ---
 
 <Hamburger links={links} />
 <div
-	class="h-[88px] bg-black bg-opacity-50 backdrop-blur-sm fixed top-0 w-full z-[49]"
+  class="h-[88px] bg-black bg-opacity-50 backdrop-blur-sm fixed top-0 w-full z-[49]"
 >
 </div>
 <div
-	class="w-full h-[88px] px-16 sticky top-0 flex justify-end items-center font-['futura-pt',sans-serif] text-white z-50"
+  class="w-full h-[88px] px-16 sticky top-0 flex justify-end items-center font-['futura-pt',sans-serif] text-white z-50"
 >
-	{
-		showLogo && (
-			<a
-				transition:name="header-logo"
-				href="/"
-				class="font-bold text-lg md:text-xl lg:text-[3rem] tracking-normal font-['futura-pt',serif] md:text-nowrap z-50
+  {
+    showLogo && (
+      <a
+        transition:name="header-logo"
+        href="/"
+        class="font-bold text-lg md:text-xl xl:text-[3rem] tracking-normal font-['futura-pt',serif] md:text-nowrap z-50
 				left-5 md:left-1/2 md:-translate-x-1/2 absolute w-[70%] md:w-fit
 				-translate-x-0"
-			>
-				WILLIAM "ZY" YAO
-			</a>
-		)
-	}
-	<div class="flex justify-end items-center gap-3 xl:gap-8">
-		<div class="flex flex-col items-end justify-end relative">
-			<a
-				transition:name="projects-link"
-				href="/projects"
-				onclick="return false"
-				class="peer hidden lg:block px-5 py-2 text-white underline-offset-8"
-				class:list={[{ underline: active === "projects" }]}>Projects</a
-			>
-			<div
-				id="projects-dropdown"
-				class="hidden absolute peer-hover:flex hover:flex
+      >
+        WILLIAM "ZY" YAO
+      </a>
+    )
+  }
+  <div class="flex justify-end items-center gap-3 xl:gap-8">
+    <div class="flex flex-col items-end justify-end relative">
+      <a
+        transition:name="projects-link"
+        href="/projects"
+        onclick="return false"
+        class="peer hidden xl:block px-5 py-2 text-white underline-offset-8"
+        class:list={[{ underline: active === "projects" }]}>Projects</a
+      >
+      <div
+        id="projects-dropdown"
+        class="hidden absolute peer-hover:flex hover:flex
 						w-fit
 						flex-col drop-shadow-lg translate-y-full"
-			>
-				{
-					links.map((link) => (
-						<a
-							class="project-link px-5 py-1 text-right text-nowrap relative"
-							href={link.url}
-						>
-							{link.title}
-						</a>
-					))
-				}
-			</div>
-		</div>
+      >
+        {
+          links.map((link) => (
+            <a
+              class="project-link px-5 py-1 text-right text-nowrap relative"
+              href={link.url}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </div>
+    </div>
 
-		<a
-			transition:name="about-link"
-			id="about-anchor"
-			href="/about"
-			class="underline-offset-8 hidden lg:block mr-4"
-			class:list={[{ underline: active === "about" }]}>About</a
-		>
-		<a
-			transition:name="resume-link"
-			href="/WilliamYao_Resume.pdf"
-			target="_blank"
-			class="underline-offset-8 hidden lg:block mr-4">Resume</a
-		>
-		<a
-			class="hidden lg:block"
-			href="https://www.instagram.com/_tofusenpai/"
-			target="_blank"
-		>
-			<img src="/svg/instagram.svg" alt="instagram" width="20" />
-		</a>
-		<a
-			class="hidden lg:block"
-			href="https://vimeo.com/williamyao"
-			target="_blank"
-		>
-			<img src="/svg/vimeo.svg" alt="vimeo" width="20" />
-		</a>
-	</div>
+    <a
+      transition:name="about-link"
+      id="about-anchor"
+      href="/about"
+      class="underline-offset-8 hidden xl:block mr-4"
+      class:list={[{ underline: active === "about" }]}>About</a
+    >
+    <a
+      transition:name="resume-link"
+      href="/WilliamYao_Resume.pdf"
+      target="_blank"
+      class="underline-offset-8 hidden xl:block mr-4">Resume</a
+    >
+    <a
+      class="hidden xl:block"
+      href="https://www.instagram.com/_tofusenpai/"
+      target="_blank"
+    >
+      <img src="/svg/instagram.svg" alt="instagram" width="20" />
+    </a>
+    <a
+      class="hidden xl:block"
+      href="https://vimeo.com/williamyao"
+      target="_blank"
+    >
+      <img src="/svg/vimeo.svg" alt="vimeo" width="20" />
+    </a>
+  </div>
 </div>
 
 <style>
-	.project-link {
-		background-color: #000;
-		transition-property:
-			color, background-color, border-color, text-decoration-color, fill,
-			stroke;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 150ms;
-	}
-	.project-link:hover {
-		background-color: #fafafa;
-		color: #13151a;
-	}
+  .project-link {
+    background-color: #000;
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  .project-link:hover {
+    background-color: #fafafa;
+    color: #13151a;
+  }
 </style>

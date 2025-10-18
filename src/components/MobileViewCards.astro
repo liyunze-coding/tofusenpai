@@ -1,175 +1,69 @@
 ---
-import { Image } from "astro:assets";
+import { AnimatedCards } from "./ui/animated-cards";
 
-// mobile components
-import { ContainerScroll } from "./ui/container-scroll-animation";
+const projects = [
+  {
+    name: "GIVE ME LOVE",
+    subtitle: "SHORT FILM",
+    src: "/film-images/small/give-me-love.webp",
+  },
+  {
+    name: "DAYDREAMERS",
+    subtitle: "OFF-BROADWAY SHOW",
+    src: "/film-images/small/daydreamers.webp",
+  },
+  {
+    name: "GRIMES COACHELLA 2024",
+    subtitle: "MULTIMEDIA LIVE SHOW",
+    src: "/film-images/small/grimes.webp",
+  },
+  {
+    name: "GRATITUDE GARDEN",
+    subtitle: "AR EXPERIENCE",
+
+    src: "/film-images/small/garden.webp",
+  },
+  {
+    name: "A SHORT FILM ABOUT RAINBOWS",
+    subtitle: "ANIMATION",
+    src: "/film-images/small/rainbows.webp",
+  },
+  {
+    name: "SHARKBAIT",
+    subtitle: "SHORT FILM",
+    src: "/film-images/small/sharkbait.webp",
+  },
+  {
+    name: "Samsung x Twitchcon 2023",
+    subtitle: "SHORT DOCUMENTARY",
+    src: "/film-images/small/twitchcon.webp",
+  },
+  {
+    name: "SHARKBAIT",
+    subtitle: "SHORT FILM",
+    src: "/film-images/small/sharkbait.webp",
+  },
+  {
+    name: "HEAVENMADE",
+    subtitle: "MOVEMENT DIRECTION",
+    src: "/film-images/small/heavenmade.webp",
+  },
+  {
+    name: "TELL THE GIRL",
+    subtitle: "MUSIC VIDEO",
+    src: "/film-images/small/tell-the-girl.webp",
+  },
+  {
+    name: "CREATOR CULTURE",
+    subtitle: "DOCUMENTARY",
+    src: "/film-images/small/creator-culture.webp",
+  },
+  {
+    name: "DO I KNOW YOU?",
+    subtitle: "SHORT FILM",
+    src: "/film-images/small/do-i-know-you.webp",
+  },
+];
 ---
 
-<div class="flex flex-col lg:hidden overflow-hidden">
-	<ContainerScroll
-		href="/give-me-love"
-		heading="Give Me Love"
-		subheading="(SHORT FILM)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/give-me-love.webp"
-			alt="GIVE ME LOVE"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		href="/daydreamers"
-		heading="DAYDREAMERS"
-		subheading="(OFF-BROADWAY SHOW)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/daydreamers.webp"
-			alt="Daydreamers"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		href="/grimes"
-		heading="GRIMES COACHELLA 2024"
-		subheading="(MULTIMEDIA LIVE SHOW)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/grimes.webp"
-			alt="Grimes Coachella 2024"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-
-	<ContainerScroll
-		href="/asfar"
-		heading="A SHORT FILM ABOUT RAINBOWS"
-		subheading="(ANIMATION)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/rainbows.webp"
-			alt="a short film about rainbows"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-
-	<ContainerScroll
-		href="/garden"
-		heading="GRATITUDE GARDEN"
-		subheading="(AR EXPERIENCE)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/garden.webp"
-			alt="Gratitude garden"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-
-	<ContainerScroll
-		href="/shark-bait"
-		heading="SHARK BAIT"
-		subheading="(SHORT FILM)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/sharkbait.webp"
-			alt="Shark Bait"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		heading="SAMSUNG X TWITCH CON 2023"
-		subheading="(SHORT DOCUMENTARY)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/twitchcon.webp"
-			alt="Samsung Twitchcon 2023"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		href="heavenmade"
-		heading="HEAVENMADE"
-		subheading="(MOVEMENT DIRECTION)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/heavenmade.webp"
-			alt="Heavenmade"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		href="/tell-the-girl"
-		heading="TELL THE GIRL"
-		subheading="(MUSIC VIDEO)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/tell-the-girl.webp"
-			alt="Tell The Girl"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		href="/creator-culture"
-		heading="CREATOR CULTURE"
-		subheading="(DOCUMENTARY)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/creator-culture.webp"
-			alt="Creator Culture"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-	<ContainerScroll
-		heading="DO I KNOW YOU?"
-		subheading="(SHORT FILM)"
-		client:load
-	>
-		<Image
-			src="/film-images/small/do-i-know-you.webp"
-			alt="Do I Know You?"
-			height={465}
-			width={648}
-			class="mx-auto rounded-2xl object-cover h-full object-center"
-			draggable={false}
-		/>
-	</ContainerScroll>
-</div>
+<AnimatedCards testimonials={projects} client:load className="lg:hidden" />
