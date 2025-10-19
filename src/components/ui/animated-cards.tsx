@@ -117,7 +117,7 @@ export const AnimatedCards = ({
         className,
       )}
     >
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+      <div className="relative grid grid-cols-1 gap-10 md:gap-20 md:grid-cols-2">
         <div>
           {/* Attach touch/pointer handlers here to enable swiping on mobile */}
           <div
@@ -238,7 +238,7 @@ export const AnimatedCards = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4 items-center md:items-start text-center md:text-left">
+        <div className="flex flex-col-reverse md:flex-col justify-between md:py-4 items-center md:items-start text-center md:text-left">
           <motion.div
             key={active}
             initial={{
@@ -257,7 +257,7 @@ export const AnimatedCards = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
-            className="md:mt-24"
+            className="mt-5 md:mt-24"
           >
             {projects[active].href !== "" ? (
               <a
@@ -287,7 +287,7 @@ export const AnimatedCards = ({
               <p className=" text-gray-400 mt-5">{projects[active].subtitle}</p>
             )}
           </motion.div>
-          <div className="flex gap-4 pt-12 sm:pt-5">
+          <div className="flex gap-4">
             <button
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
