@@ -4,29 +4,31 @@ import { cn } from "../../lib/utils";
 
 import { useEffect, useState } from "react";
 
-type Testimonial = {
+type Project = {
   name: string;
   subtitle: string;
   src: string;
+  href?: string;
+  target?: string;
 };
 
 export const AnimatedCards = ({
-  testimonials,
+  projects,
   autoplay = false,
   className = "",
 }: {
-  testimonials: Testimonial[];
+  projects: Project[];
   autoplay?: boolean;
   className?: string;
 }) => {
   const [active, setActive] = useState(0);
 
   const handleNext = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
+    setActive((prev) => (prev + 1) % projects.length);
   };
 
   const handlePrev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActive((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const isActive = (index: number) => {
@@ -54,51 +56,95 @@ export const AnimatedCards = ({
         <div>
           <div className="relative h-80 w-full">
             <AnimatePresence>
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.src}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: -100,
-                    rotate: randomRotateY(),
-                  }}
-                  animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
-                    zIndex: isActive(index)
-                      ? 40
-                      : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.9,
-                    z: 100,
-                    rotate: randomRotateY(),
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute inset-0 origin-bottom"
-                >
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={500}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
-                  />
-                </motion.div>
-              ))}
+              {projects.map((testimonial, index) =>
+                projects[active].href !== "" ? (
+                  <motion.a
+                    key={testimonial.src}
+                    href={projects[active].href}
+                    target={projects[active].target ?? "_self"}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.9,
+                      z: -100,
+                      rotate: randomRotateY(),
+                    }}
+                    animate={{
+                      opacity: isActive(index) ? 1 : 0.7,
+                      scale: isActive(index) ? 1 : 0.95,
+                      z: isActive(index) ? 0 : -100,
+                      rotate: isActive(index) ? 0 : randomRotateY(),
+                      zIndex: isActive(index)
+                        ? 40
+                        : projects.length + 2 - index,
+                      y: isActive(index) ? [0, -80, 0] : 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.9,
+                      z: 100,
+                      rotate: randomRotateY(),
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 origin-bottom"
+                  >
+                    <img
+                      src={testimonial.src}
+                      alt={testimonial.name}
+                      width={500}
+                      height={500}
+                      draggable={false}
+                      className="h-full w-full rounded-3xl object-cover object-center"
+                    />
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={testimonial.src}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.9,
+                      z: -100,
+                      rotate: randomRotateY(),
+                    }}
+                    animate={{
+                      opacity: isActive(index) ? 1 : 0.7,
+                      scale: isActive(index) ? 1 : 0.95,
+                      z: isActive(index) ? 0 : -100,
+                      rotate: isActive(index) ? 0 : randomRotateY(),
+                      zIndex: isActive(index)
+                        ? 40
+                        : projects.length + 2 - index,
+                      y: isActive(index) ? [0, -80, 0] : 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.9,
+                      z: 100,
+                      rotate: randomRotateY(),
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      ease: "easeInOut",
+                    }}
+                    className="absolute inset-0 origin-bottom"
+                  >
+                    <img
+                      src={testimonial.src}
+                      alt={testimonial.name}
+                      width={500}
+                      height={500}
+                      draggable={false}
+                      className="h-full w-full rounded-3xl object-cover object-center"
+                    />
+                  </motion.div>
+                ),
+              )}
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4 items-start text-left">
+        <div className="flex flex-col justify-between py-4 items-center md:items-start text-center md:text-left">
           <motion.div
             key={active}
             initial={{
@@ -117,14 +163,35 @@ export const AnimatedCards = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
-            className="mt-24"
+            className="md:mt-24"
           >
-            <h3 className="font-bold text-black text-4xl dark:text-white">
-              {testimonials[active].name}
-            </h3>
-            <p className=" text-gray-400 mt-5">
-              {testimonials[active].subtitle}
-            </p>
+            {projects[active].href !== "" ? (
+              <a
+                href={projects[active].href}
+                target={projects[active].target ?? "_self"}
+                className="font-bold text-black text-4xl dark:text-white"
+              >
+                {projects[active].name}
+              </a>
+            ) : (
+              <h3 className="font-bold text-black text-4xl dark:text-white">
+                {projects[active].name}
+              </h3>
+            )}
+            {projects[active].href !== "" ? (
+              <>
+                <br />
+                <a
+                  href={projects[active].href}
+                  target={projects[active].target ?? "_self"}
+                  className="text-gray-400 mt-5"
+                >
+                  {projects[active].subtitle}
+                </a>
+              </>
+            ) : (
+              <p className=" text-gray-400 mt-5">{projects[active].subtitle}</p>
+            )}
           </motion.div>
           <div className="flex gap-4 pt-12 sm:pt-5">
             <button

@@ -6,57 +6,68 @@ const projects = [
     name: "GIVE ME LOVE",
     subtitle: "SHORT FILM",
     src: "/film-images/small/give-me-love.webp",
+    href: "/give-me-love",
   },
   {
     name: "DAYDREAMERS",
     subtitle: "OFF-BROADWAY SHOW",
     src: "/film-images/small/daydreamers.webp",
+    href: "/daydreamers",
   },
   {
     name: "GRIMES COACHELLA 2024",
     subtitle: "MULTIMEDIA LIVE SHOW",
     src: "/film-images/small/grimes.webp",
+    href: "/grimes",
   },
   {
     name: "GRATITUDE GARDEN",
     subtitle: "AR EXPERIENCE",
-
     src: "/film-images/small/garden.webp",
+    href: "/garden",
   },
   {
     name: "A SHORT FILM ABOUT RAINBOWS",
     subtitle: "ANIMATION",
     src: "/film-images/small/rainbows.webp",
+    href: "asfar",
   },
   {
     name: "SHARKBAIT",
     subtitle: "SHORT FILM",
     src: "/film-images/small/sharkbait.webp",
+    href: "/sharkbait",
   },
   {
     name: "Samsung x Twitchcon 2023",
     subtitle: "SHORT DOCUMENTARY",
     src: "/film-images/small/twitchcon.webp",
+    href: "/https://www.youtube.com/watch?v=NcddgkTP21M",
+    target: "_blank",
   },
   {
     name: "SHARKBAIT",
     subtitle: "SHORT FILM",
     src: "/film-images/small/sharkbait.webp",
+    href: "/sharkbait",
   },
   {
     name: "HEAVENMADE",
     subtitle: "MOVEMENT DIRECTION",
     src: "/film-images/small/heavenmade.webp",
+    href: "/heavenmade",
   },
   {
     name: "TELL THE GIRL",
     subtitle: "MUSIC VIDEO",
     src: "/film-images/small/tell-the-girl.webp",
+    href: "tell-the-girl",
   },
   {
     name: "CREATOR CULTURE",
     subtitle: "DOCUMENTARY",
     src: "/film-images/small/creator-culture.webp",
+    href: "creator-culture",
   },
   {
     name: "DO I KNOW YOU?",
@@ -66,4 +77,4 @@ const projects = [
 ];
 ---
 
-<AnimatedCards testimonials={projects} client:load className="lg:hidden" />
+<AnimatedCards projects={projects} client:load className="lg:hidden" />
