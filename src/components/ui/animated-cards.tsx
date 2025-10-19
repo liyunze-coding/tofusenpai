@@ -2,7 +2,7 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "../../lib/utils";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Project = {
   name: string;
@@ -45,6 +45,71 @@ export const AnimatedCards = ({
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+
+  // Swipe handling
+  const touchStartX = useRef<number | null>(null);
+  const touchCurrentX = useRef<number | null>(null);
+  const isPointerDown = useRef(false);
+  const [translateX, setTranslateX] = useState(0); // optional visual feedback
+  const swiped = useRef(false);
+  const SWIPE_THRESHOLD = 50; // px
+
+  const handleTouchStart = (clientX: number) => {
+    touchStartX.current = clientX;
+    touchCurrentX.current = clientX;
+    isPointerDown.current = true;
+    swiped.current = false;
+    setTranslateX(0);
+  };
+
+  const handleTouchMove = (clientX: number) => {
+    if (!isPointerDown.current || touchStartX.current == null) return;
+    touchCurrentX.current = clientX;
+    const delta = clientX - touchStartX.current;
+    setTranslateX(delta);
+    // mark swiped when user drags past small amount to avoid accidental clicks
+    if (Math.abs(delta) > 10) swiped.current = true;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current == null || touchCurrentX.current == null) {
+      resetSwipe();
+      return;
+    }
+    const delta = touchCurrentX.current - touchStartX.current;
+    if (Math.abs(delta) > SWIPE_THRESHOLD) {
+      if (delta < 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    resetSwipe();
+  };
+
+  const resetSwipe = () => {
+    touchStartX.current = null;
+    touchCurrentX.current = null;
+    isPointerDown.current = false;
+    setTranslateX(0);
+    // keep swiped flag momentarily to suppress click — cleared on next tick
+    setTimeout(() => (swiped.current = false), 50);
+  };
+
+  // event wrappers
+  const onTouchStart = (e: React.TouchEvent) =>
+    handleTouchStart(e.touches[0].clientX);
+  const onTouchMove = (e: React.TouchEvent) =>
+    handleTouchMove(e.touches[0].clientX);
+  const onTouchEnd = () => handleTouchEnd();
+
+  // pointer events for broader support (mouse / pen)
+  const onPointerDown = (e: React.PointerEvent) =>
+    handleTouchStart(e.clientX as number);
+  const onPointerMove = (e: React.PointerEvent) =>
+    isPointerDown.current && handleTouchMove(e.clientX as number);
+  const onPointerUp = () => handleTouchEnd();
+
   return (
     <div
       className={cn(
@@ -54,7 +119,20 @@ export const AnimatedCards = ({
     >
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div>
-          <div className="relative h-80 w-full">
+          {/* Attach touch/pointer handlers here to enable swiping on mobile */}
+          <div
+            className="relative h-80 w-full"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            // suppress built-in gestures that may conflict
+            style={{ touchAction: "pan-y" }}
+            // optional visual feedback while swiping
+            // translateX will not break layout — it's applied to inner absolute items
+          >
             <AnimatePresence>
               {projects.map((testimonial, index) =>
                 projects[active].href !== "" ? (
@@ -77,6 +155,8 @@ export const AnimatedCards = ({
                         ? 40
                         : projects.length + 2 - index,
                       y: isActive(index) ? [0, -80, 0] : 0,
+                      // small translate for visual during active swipe only
+                      x: isActive(index) ? translateX : 0,
                     }}
                     exit={{
                       opacity: 0,
@@ -89,6 +169,13 @@ export const AnimatedCards = ({
                       ease: "easeInOut",
                     }}
                     className="absolute inset-0 origin-bottom"
+                    onClick={(e) => {
+                      // suppress clicks that were actually swipes
+                      if (swiped.current) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }
+                    }}
                   >
                     <img
                       src={testimonial.src}
@@ -117,6 +204,7 @@ export const AnimatedCards = ({
                         ? 40
                         : projects.length + 2 - index,
                       y: isActive(index) ? [0, -80, 0] : 0,
+                      x: isActive(index) ? translateX : 0,
                     }}
                     exit={{
                       opacity: 0,
@@ -129,6 +217,12 @@ export const AnimatedCards = ({
                       ease: "easeInOut",
                     }}
                     className="absolute inset-0 origin-bottom"
+                    onClick={(e) => {
+                      if (swiped.current) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }
+                    }}
                   >
                     <img
                       src={testimonial.src}
