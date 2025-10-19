@@ -257,7 +257,7 @@ export const AnimatedCards = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
-            className="mt-5 md:mt-24"
+            className="mt-8 md:mt-24"
           >
             {projects[active].href !== "" ? (
               <a
